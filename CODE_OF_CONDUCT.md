@@ -124,8 +124,8 @@ This Code of Conduct is inspired by:
 
 - **[CONTRIBUTING.md](CONTRIBUTING.md)**
 - **[GOVERNANCE.md](GOVERNANCE.md)**
-- **[LICENSE.md](../LICENSE.md)**
-- **[Open Core Architecture Plan](ca://s?q=Show_me_open_core_architecture_plan_for_Gewerber)**
+- **[LICENSE.md](LICENSE.md)**
+- **[Technical Specification](https://github.com/Gewerber/gewerber-docs/blob/main/TECHNICAL_SPECIFICATION.md)**
 
 ---
 

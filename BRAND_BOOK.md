@@ -231,10 +231,10 @@ brand/
 
 ## 13. Expansion Links
 
-- [Brand Identity](ca://s?q=Expand_Gewerber_brand_identity)  
-- [UI Kit](ca://s?q=Contribute_to_ui_kit)  
-- [Design System](ca://s?q=Create_Gewerber_design_system)  
-- [Marketing Guidelines](ca://s?q=Expand_Gewerber_marketing_guidelines)  
+- Brand Identity
+- UI Kit
+- Design System
+- Marketing Guidelines  
 
 ---
 

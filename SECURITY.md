@@ -170,7 +170,7 @@ Planned improvements:
 - Secure plugin architecture
 
 See full roadmap:
-**[ROADMAP.md](../ROADMAP.md)**
+**[ROADMAP.md](https://github.com/Gewerber/gewerber-docs/blob/main/ROADMAP.md)**
 
 ---
 
@@ -178,9 +178,8 @@ See full roadmap:
 
 - **[CONTRIBUTING.md](CONTRIBUTING.md)**
 - **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)**
-- **[TECHNICAL_SPECIFICATION.md](../TECHNICAL_SPECIFICATION.md)**
-- **[PRD.md](../PRD.md)**
-- **[LICENSE.md](../LICENSE.md)**
+- **[TECHNICAL_SPECIFICATION.md](https://github.com/Gewerber/gewerber-docs/blob/main/TECHNICAL_SPECIFICATION.md)**
+- **[LICENSE.md](LICENSE.md)**
 
 ---
 

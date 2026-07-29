@@ -26,11 +26,11 @@ Provide a clear and concise description of the feature.
 
 If applicable, indicate which module is affected:
 
-- [ ] [Invoicing](ca://s?q=Contribute_to_invoicing_module)
-- [ ] [Time Tracking](ca://s?q=Contribute_to_time_tracking_module)
-- [ ] [Basic Accounting](ca://s?q=Contribute_to_accounting_module)
-- [ ] [Guidance System](ca://s?q=Contribute_to_guidance_module)
-- [ ] [UI Kit](ca://s?q=Contribute_to_ui_kit)
+- [ ] Invoicing
+- [ ] Time Tracking
+- [ ] Basic Accounting
+- [ ] Guidance System
+- [ ] UI Kit
 - [ ] Core Platform
 - [ ] Documentation
 

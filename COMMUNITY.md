@@ -166,14 +166,14 @@ Pull requests touching closed modules will be rejected.
 
 You can contribute to any OSS roadmap item:
 
-- **[OSS invoicing improvements](ca://s?q=OSS_invoicing_roadmap)**
-- **[OSS time tracking enhancements](ca://s?q=OSS_time_tracking_roadmap)**
-- **[OSS accounting improvements](ca://s?q=OSS_accounting_roadmap)**
-- **[Guidance system expansion](ca://s?q=OSS_guidance_roadmap)**
-- **[UI kit components](ca://s?q=OSS_ui_kit_roadmap)**
+- **OSS invoicing improvements**
+- **OSS time tracking enhancements**
+- **OSS accounting improvements**
+- **Guidance system expansion**
+- **UI kit components**
 
 Full roadmap:
-**[ROADMAP.md](https://github.com/Gewerber/gewerber/blob/main/ROADMAP.md)**
+**[ROADMAP.md](https://github.com/Gewerber/gewerber-docs/blob/main/ROADMAP.md)**
 
 ---
 

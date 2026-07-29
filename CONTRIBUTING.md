@@ -38,7 +38,6 @@ See **[ORGANIZATION.md](ORGANIZATION.md)** for the full structure.
 |---|---|---|
 | `gewerber-app` | `Gewerber/gewerber-app` | Flutter Web app |
 | `gewerber-backend-core` | `Gewerber/gewerber-backend-core` | Serverpod backend (OSS) |
-| `gewerber-backend-commercial` | `Gewerber/gewerber-backend-commercial` | Serverpod backend (closed) |
 | `gewerber-docs` | `Gewerber/gewerber-docs` | Documentation site |
 | `gewerber-examples` | `Gewerber/gewerber-examples` | Example projects |
 | `.github` | `Gewerber/.github` | Organization profile README |
@@ -48,6 +47,7 @@ See **[ORGANIZATION.md](ORGANIZATION.md)** for the full structure.
 | **Repository** | **Remote** | **Purpose** |
 |---|---|---|
 | `gewerber-backend-commercial` | `Gewerber/gewerber-backend-commercial` | Banking adapters (PSD2), ELSTER, advanced accounting |
+| `gewerber-business` | `Gewerber/gewerber-business` | Product strategy, PRD, business roadmap, marketing |
 | `gewerber-payments` | `Gewerber/gewerber-payments` | Stripe, subscriptions, billing, feature gating |
 | `gewerber-infra` | `Gewerber/gewerber-infra` | Terraform, Helm, CI/CD secrets, production deployment |
 | `gewerber-ops` | `Gewerber/gewerber-ops` | Monitoring, alerts, runbooks, incident playbooks |
@@ -62,11 +62,11 @@ Commercial modules are not part of this repository.
 
 You can contribute to:
 
-- **[Invoicing](ca://s?q=Contribute_to_invoicing_module)**
-- **[Time Tracking](ca://s?q=Contribute_to_time_tracking_module)**
-- **[Basic Accounting](ca://s?q=Contribute_to_accounting_module)**
-- **[Guidance System](ca://s?q=Contribute_to_guidance_module)**
-- **[UI Kit](ca://s?q=Contribute_to_ui_kit)**
+- **Invoicing**
+- **Time Tracking**
+- **Basic Accounting**
+- **Guidance System**
+- **UI Kit**
 - **Documentation**
 - **Bug fixes**
 - **Performance improvements**
@@ -164,7 +164,7 @@ You can contribute to any open‑source roadmap item:
 - Guidance system expansion
 - UI kit components
 
-See **[ROADMAP.md](../ROADMAP.md)** for details.
+See **[ROADMAP.md](https://github.com/Gewerber/gewerber-docs/blob/main/ROADMAP.md)** for details.
 
 ---
 

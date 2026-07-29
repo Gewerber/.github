@@ -133,4 +133,4 @@ All participants must follow the **[Code of Conduct](CODE_OF_CONDUCT.md)**.
 - **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)**
 - **[SECURITY.md](SECURITY.md)**
 - **[ORGANIZATION.md](ORGANIZATION.md)**
-- **[ROADMAP.md](../ROADMAP.md)**
+- **[ROADMAP.md](https://github.com/Gewerber/gewerber-docs/blob/main/ROADMAP.md)**

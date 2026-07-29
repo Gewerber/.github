@@ -33,12 +33,7 @@ People who contributed to open‑source modules:
 - **UI Kit**
 - **Core Platform**
 
-See contribution areas:
-**[Contribute_to_invoicing_module](ca://s?q=Contribute_to_invoicing_module)**
-**[Contribute_to_time_tracking_module](ca://s?q=Contribute_to_time_tracking_module)**
-**[Contribute_to_accounting_module](ca://s?q=Contribute_to_accounting_module)**
-**[Contribute_to_guidance_module](ca://s?q=Contribute_to_guidance_module)**
-**[Contribute_to_ui_kit](ca://s?q=Contribute_to_ui_kit)**
+See the [Contributing Guide](https://github.com/Gewerber/.github/blob/main/CONTRIBUTING.md) for contribution areas.
 
 ### 📚 Documentation Contributors
 People who improved:

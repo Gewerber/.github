@@ -44,6 +44,7 @@ This document describes the repository architecture inside the **Gewerber** GitH
 | **Repository** | **Purpose** |
 |---|---|
 | **gewerber-backend-commercial** | Banking adapters (PSD2), ELSTER, advanced accounting, closed APIs. |
+| **gewerber-business** | Product strategy, PRD, detailed business roadmap, marketing. |
 | **gewerber-payments** | Stripe, subscriptions, billing, feature gating. |
 | **gewerber-infra** | Terraform, Helm, CI/CD secrets, production deployment. |
 | **gewerber-ops** | Monitoring, alerts, runbooks, incident playbooks. |
@@ -96,7 +97,7 @@ Pull requests affecting closed modules will be rejected.
 - **[Security Policy](SECURITY.md)**
 - **[Governance](GOVERNANCE.md)**
 - **[Support](SUPPORT.md)**
-- **[Roadmap](../ROADMAP.md)**
+- **[Roadmap](https://github.com/Gewerber/gewerber-docs/blob/main/ROADMAP.md)**
 
 ---
 
@@ -143,9 +144,7 @@ Pull requests affecting closed modules will be rejected.
 
 ## 📚 Additional Resources
 
-- **Architecture** — [Open Core Architecture](ca://s?q=Show_me_open_core_architecture_plan_for_Gewerber)
-- **Technical Specification** — [Technical Spec](../TECHNICAL_SPECIFICATION.md)
-- **Product Requirements** — [PRD](../PRD.md)
+- **Technical Specification** — [Technical Spec](https://github.com/Gewerber/gewerber-docs/blob/main/TECHNICAL_SPECIFICATION.md)
 
 ---
 
