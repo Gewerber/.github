@@ -38,6 +38,7 @@ See **[ORGANIZATION.md](ORGANIZATION.md)** for the full structure.
 |---|---|---|
 | `gewerber-app` | `Gewerber/gewerber-app` | Flutter Web app |
 | `gewerber-backend-core` | `Gewerber/gewerber-backend-core` | Serverpod backend (OSS) |
+| `gewerber-website` | `Gewerber/gewerber-website` | Jaspr SSR marketing site (`gewerber.de`) |
 | `gewerber-docs` | `Gewerber/gewerber-docs` | Documentation site |
 | `gewerber-examples` | `Gewerber/gewerber-examples` | Example projects |
 | `.github` | `Gewerber/.github` | Organization profile README |

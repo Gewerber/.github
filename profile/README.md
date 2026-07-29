@@ -73,7 +73,7 @@ Gewerber uses a single‑language Dart stack:
 - **PostgreSQL** for data
 - **S3-compatible** storage for documents
 
-The project is organized as separate git repositories under the Gewerber GitHub organization. See **[ORGANIZATION.md](.github/ORGANIZATION.md)** for the full repository structure.
+The project is organized as separate git repositories under the Gewerber GitHub organization. See **[ORGANIZATION.md](https://github.com/Gewerber/.github/blob/main/ORGANIZATION.md)** for the full repository structure.
 
 ---
 
@@ -100,7 +100,7 @@ flutter run -d chrome
 
 ### ▶️ Running the Jaspr site
 ```bash
-cd gewerber-docs
+cd gewerber-website
 jaspr serve
 ```
 
@@ -114,6 +114,7 @@ The Gewerber organization is composed of multiple repositories:
 |---|---|
 | **gewerber-app** | Flutter application: mobile, web, desktop. Includes UI Kit and client packages. |
 | **gewerber-backend-core** | Serverpod backend for the open-source core: auth, invoicing (without payments), time tracking, guidance. |
+| **gewerber-website** | Jaspr SSR marketing site (`gewerber.de`). |
 | **gewerber-examples** | Deployment examples, Docker Compose, demo projects, quickstart setups. |
 | **gewerber-docs** *(optional)* | Centralized documentation, architecture, guides. |
 | **.github** | Organization-wide documentation, issue/PR templates, global policies. |
@@ -123,6 +124,7 @@ The Gewerber organization is composed of multiple repositories:
 | **Repository** | **Purpose** |
 |---|---|
 | **gewerber-backend-commercial** | Banking adapters (PSD2), ELSTER, advanced accounting, closed APIs. |
+| **gewerber-business** | Product strategy, PRD, detailed business roadmap, marketing. |
 | **gewerber-payments** | Stripe, subscriptions, billing, feature gating. |
 | **gewerber-infra** | Terraform, Helm, CI/CD secrets, production deployment. |
 | **gewerber-ops** | Monitoring, alerts, runbooks, incident playbooks. |
@@ -135,13 +137,13 @@ Commercial modules live in private repositories.
 
 **Gewerber Core** is licensed under **MIT**. Commercial modules are proprietary and not part of this repository.
 
-See **[LICENSE.md](LICENSE.md)** for details.
+See **[LICENSE.md](https://github.com/Gewerber/.github/blob/main/LICENSE.md)** for details.
 
 ---
 
 ## 🤝 Contributing
 
-We welcome contributions! See **[CONTRIBUTING.md](.github/CONTRIBUTING.md)** for details.
+We welcome contributions! See **[CONTRIBUTING.md](https://github.com/Gewerber/.github/blob/main/CONTRIBUTING.md)** for details.
 
 ---
 

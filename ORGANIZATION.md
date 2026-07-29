@@ -33,6 +33,7 @@ This document describes the repository architecture inside the **Gewerber** GitH
 |---|---|
 | **gewerber-app** | Flutter application: mobile, web, desktop. Includes UI Kit and client packages. |
 | **gewerber-backend-core** | Serverpod backend for the open-source core: auth, invoicing (without payments), time tracking, guidance. |
+| **gewerber-website** | Jaspr SSR marketing site (`gewerber.de`). |
 | **gewerber-examples** | Deployment examples, Docker Compose, demo projects, quickstart setups. |
 | **gewerber-docs** *(optional)* | Centralized documentation, architecture, guides. |
 | **.github** | Organization-wide documentation, issue/PR templates, global policies. |
