@@ -89,7 +89,7 @@ The project is organized as separate git repositories under the Gewerber GitHub 
 ### ▶️ Running the backend
 ```bash
 cd gewerber-backend-core
-serverpod run
+serverpod start
 ```
 
 ### ▶️ Running the Flutter Web app
