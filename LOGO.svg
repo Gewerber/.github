@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Gewerber — Symbol mark "G" (universal / crop-safe master)
+  Nominal size: 512 x 512 (vector — scales to any size)
+  Brand Book v1.0 compliant:
+    Field  = Gewerber Blue  #2D6CDF  (Trust / Clarity)
+    Mark   = pure white             (white-on-colored rule)
+    Node   = Gewerber Mint  #4CD4A9 (the ONLY place mint lives)
+    Safe-zone ~25% on every side  (> 24px min padding @512)
+  Meaning of the G: Guidance · Gewerbe · Growth
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="512" height="512" viewBox="0 0 512 512"
+     role="img" aria-labelledby="gwTitle gwDesc"
+     shape-rendering="geometricPrecision">
+  <title id="gwTitle">Gewerber</title>
+  <desc id="gwDesc">Gewerber G symbol mark: a geometric double-trace G with a single mint node, on Gewerber Blue.</desc>
+
+  <defs>
+    <!-- Soft ambient warmth behind the mark (keeps the high-tech from feeling cold) -->
+    <radialGradient id="gw-warm" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#FFFFFF" stop-opacity="0.16"/>
+      <stop offset="55%"  stop-color="#FFFFFF" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Glow for the single "live node" -->
+    <filter id="gw-mint-glow" x="-120%" y="-120%" width="340%" height="340%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+  </defs>
+
+  <!-- 1. Full-bleed field: sharp 90° corners, edge-to-edge (crop-universal) -->
+  <rect width="512" height="512" fill="#2D6CDF"/>
+
+  <!-- 2. Ambient warmth (centered, subtle) -->
+  <circle cx="256" cy="256" r="256" fill="url(#gw-warm)"/>
+
+  <!-- 3. The mark. translate(16 0) optically centers the G+mint as one unit. -->
+  <g transform="translate(16 0)">
+    <!--
+      The whole G is ONE centerline path, drawn twice:
+        - white, thick  -> the body
+        - blue,  thin   -> the inline "data channel" (splits the body into the
+                           double-trace bowl, the two-bar crossbar, the twin stem)
+      Path = open top terminal -> bowl (long arc) -> right stem -> crossbar to center.
+    -->
+    <path id="gw-g"
+          d="M328.84 151.97
+             A127 127 0 1 0 328.84 360.03
+             L328.84 256
+             L250 256"
+          fill="none"
+          stroke="#FFFFFF" stroke-width="34"
+          stroke-linecap="round" stroke-linejoin="round"/>
+
+    <path d="M328.84 151.97
+             A127 127 0 1 0 328.84 360.03
+             L328.84 256
+             L250 256"
+          fill="none"
+          stroke="#2D6CDF" stroke-width="9"
+          stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- The single mint node: a connected, "live" terminal (restraint = Clarity) -->
+    <circle cx="352" cy="256" r="15" fill="#4CD4A9" opacity="0.85" filter="url(#gw-mint-glow)"/>
+    <circle cx="352" cy="256" r="15" fill="#4CD4A9"/>
+  </g>
+</svg>
