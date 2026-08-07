@@ -1,0 +1,184 @@
+{
+  "fontFamilies": {
+    "primary": {
+      "name": "Inter",
+      "category": "sans-serif",
+      "description": "Modern, readable, perfect for UI",
+      "weights": [400, 500, 600, 700],
+      "styles": ["normal"],
+      "source": "Google Fonts",
+      "url": "https://fonts.google.com/specimen/Inter"
+    },
+    "mono": {
+      "name": "Roboto Mono",
+      "category": "monospace",
+      "description": "For numbers, invoices, and technical data",
+      "weights": [400, 500, 600, 700],
+      "styles": ["normal"],
+      "source": "Google Fonts",
+      "url": "https://fonts.google.com/specimen/Roboto+Mono"
+    }
+  },
+  "fontWeights": {
+    "regular": 400,
+    "medium": 500,
+    "semibold": 600,
+    "bold": 700
+  },
+  "fontSizes": {
+    "xs": "0.75rem",
+    "sm": "0.875rem",
+    "base": "1rem",
+    "lg": "1.125rem",
+    "xl": "1.25rem",
+    "2xl": "1.5rem",
+    "3xl": "1.875rem",
+    "4xl": "2.25rem",
+    "5xl": "3rem",
+    "6xl": "3.75rem"
+  },
+  "lineHeights": {
+    "none": 1,
+    "tight": 1.25,
+    "snug": 1.375,
+    "normal": 1.5,
+    "relaxed": 1.625,
+    "loose": 2
+  },
+  "letterSpacing": {
+    "tighter": "-0.05em",
+    "tight": "-0.025em",
+    "normal": "0",
+    "wide": "0.025em",
+    "wider": "0.05em",
+    "widest": "0.1em"
+  },
+  "textStyles": {
+    "displayLarge": {
+      "fontFamily": "primary",
+      "fontSize": "3.75rem",
+      "fontWeight": 700,
+      "lineHeight": 1.1,
+      "letterSpacing": "-0.02em"
+    },
+    "displayMedium": {
+      "fontFamily": "primary",
+      "fontSize": "2.25rem",
+      "fontWeight": 700,
+      "lineHeight": 1.2,
+      "letterSpacing": "-0.01em"
+    },
+    "displaySmall": {
+      "fontFamily": "primary",
+      "fontSize": "1.875rem",
+      "fontWeight": 600,
+      "lineHeight": 1.3,
+      "letterSpacing": "0"
+    },
+    "headlineLarge": {
+      "fontFamily": "primary",
+      "fontSize": "1.5rem",
+      "fontWeight": 600,
+      "lineHeight": 1.4,
+      "letterSpacing": "0"
+    },
+    "headlineMedium": {
+      "fontFamily": "primary",
+      "fontSize": "1.25rem",
+      "fontWeight": 600,
+      "lineHeight": 1.4,
+      "letterSpacing": "0"
+    },
+    "headlineSmall": {
+      "fontFamily": "primary",
+      "fontSize": "1.125rem",
+      "fontWeight": 600,
+      "lineHeight": 1.5,
+      "letterSpacing": "0"
+    },
+    "titleLarge": {
+      "fontFamily": "primary",
+      "fontSize": "1.125rem",
+      "fontWeight": 500,
+      "lineHeight": 1.5,
+      "letterSpacing": "0"
+    },
+    "titleMedium": {
+      "fontFamily": "primary",
+      "fontSize": "1rem",
+      "fontWeight": 500,
+      "lineHeight": 1.5,
+      "letterSpacing": "0.01em"
+    },
+    "titleSmall": {
+      "fontFamily": "primary",
+      "fontSize": "0.875rem",
+      "fontWeight": 500,
+      "lineHeight": 1.5,
+      "letterSpacing": "0.01em"
+    },
+    "bodyLarge": {
+      "fontFamily": "primary",
+      "fontSize": "1.125rem",
+      "fontWeight": 400,
+      "lineHeight": 1.6,
+      "letterSpacing": "0"
+    },
+    "bodyMedium": {
+      "fontFamily": "primary",
+      "fontSize": "1rem",
+      "fontWeight": 400,
+      "lineHeight": 1.6,
+      "letterSpacing": "0"
+    },
+    "bodySmall": {
+      "fontFamily": "primary",
+      "fontSize": "0.875rem",
+      "fontWeight": 400,
+      "lineHeight": 1.5,
+      "letterSpacing": "0.01em"
+    },
+    "labelLarge": {
+      "fontFamily": "primary",
+      "fontSize": "1rem",
+      "fontWeight": 500,
+      "lineHeight": 1.5,
+      "letterSpacing": "0.01em"
+    },
+    "labelMedium": {
+      "fontFamily": "primary",
+      "fontSize": "0.875rem",
+      "fontWeight": 500,
+      "lineHeight": 1.5,
+      "letterSpacing": "0.02em"
+    },
+    "labelSmall": {
+      "fontFamily": "primary",
+      "fontSize": "0.75rem",
+      "fontWeight": 500,
+      "lineHeight": 1.5,
+      "letterSpacing": "0.03em"
+    },
+    "monoLarge": {
+      "fontFamily": "mono",
+      "fontSize": "1rem",
+      "fontWeight": 400,
+      "lineHeight": 1.6,
+      "letterSpacing": "0"
+    },
+    "monoMedium": {
+      "fontFamily": "mono",
+      "fontSize": "0.875rem",
+      "fontWeight": 400,
+      "lineHeight": 1.5,
+      "letterSpacing": "0"
+    },
+    "monoSmall": {
+      "fontFamily": "mono",
+      "fontSize": "0.75rem",
+      "fontWeight": 400,
+      "lineHeight": 1.5,
+      "letterSpacing": "0"
+    }
+  }
+}

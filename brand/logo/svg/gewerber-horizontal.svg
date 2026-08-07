@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1200"
+   height="630"
+   viewBox="0 0 317.49999 166.6875"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   sodipodi:docname="gewerber-horizontal.svg"
+   inkscape:export-filename="../webp/gewerber-horizontal-1x.webp"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="0.42"
+     inkscape:cx="902.38095"
+     inkscape:cy="355.95238"
+     inkscape:window-width="3440"
+     inkscape:window-height="1371"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g1"
+       transform="matrix(0.49158967,0,0,0.5170183,-8.0165588,19.207213)">
+      <path
+         id="path7"
+         style="fill:#2d6cdf;fill-opacity:1;stroke:none;stroke-width:0.281837"
+         d="m 132.63376,42.171586 a 81.879913,81.879913 0 0 0 -81.880269,81.879754 81.879913,81.879913 0 0 0 81.880269,81.87976 81.879913,81.879913 0 0 0 79.76929,-63.40905 81.879913,81.879913 0 0 0 2.11047,-18.47071 81.879913,81.879913 0 0 0 -0.65836,-10.36422 h -0.0233 a 81.887398,81.887398 0 0 1 -28.27941,28.83441 54.239582,54.239582 0 0 1 0,5.2e-4 54.239582,54.239582 0 0 1 -51.23667,36.44325 54.239582,54.239582 0 0 1 -54.239582,-54.23958 54.239582,54.239582 0 0 1 54.239582,-54.239584 54.239582,54.239582 0 0 1 35.88618,13.569197 L 189.56,65.198604 A 81.879913,81.879913 0 0 0 132.63376,42.171586 Z" />
+      <path
+         id="path16"
+         style="fill:#3bb273;fill-opacity:1;stroke:none;stroke-width:0.268824;stroke-opacity:1"
+         d="m 185.55198,113.68712 v 28.83493 h 5.2e-4 a 54.239582,54.239582 0 0 0 0,-5.2e-4 81.887398,81.887398 0 0 0 28.27941,-28.83441 h -26.41183 z" />
+      <path
+         d="m 185.55198,113.68712 h -55.42969 v 28.83493 h 55.42969 z"
+         style="fill:#4cd4a9;fill-opacity:1;stroke:none;stroke-width:0.261839"
+         id="path17" />
+    </g>
+    <g
+       id="g2"
+       transform="translate(-2.5747014,15.73009)">
+      <text
+         xml:space="preserve"
+         style="font-size:42.3334px;writing-mode:lr-tb;direction:ltr;fill:#2d6cdf;fill-opacity:1;stroke:none;stroke-width:0.264584;stroke-opacity:1"
+         x="109.87128"
+         y="69.683517"
+         id="text17"><tspan
+           sodipodi:role="line"
+           id="tspan17"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:35.2778px;font-family:Sans;-inkscape-font-specification:'Sans, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#2d6cdf;fill-opacity:1;stroke-width:0.264584"
+           x="109.87128"
+           y="69.683517">Gewerber</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:11.2889px;font-family:'Noto Traditional Nushu';-inkscape-font-specification:'Noto Traditional Nushu';writing-mode:lr-tb;direction:ltr;fill:#2d6cdf;stroke-width:0.264583"
+         x="141.16446"
+         y="89.998482"
+         id="text1"><tspan
+           sodipodi:role="line"
+           id="tspan1"
+           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11.2889px;font-family:Sans;-inkscape-font-specification:'Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:0.264583"
+           x="141.16446"
+           y="89.998482">Business. Simplified.</tspan></text>
+    </g>
+  </g>
+</svg>
