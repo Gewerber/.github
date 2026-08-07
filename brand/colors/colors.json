@@ -1,0 +1,46 @@
+{
+  "colors": {
+    "primary": {
+      "name": "Gewerber Blue",
+      "hex": "#2D6CDF",
+      "rgb": { "r": 45, "g": 108, "b": 223 },
+      "hsl": { "h": 219, "s": 72, "l": 53 },
+      "usage": "Primary brand color - trust, stability, clarity"
+    },
+    "accent": {
+      "name": "Gewerber Mint",
+      "hex": "#4CD4A9",
+      "rgb": { "r": 76, "g": 212, "b": 169 },
+      "hsl": { "h": 156, "s": 61, "l": 56 },
+      "usage": "Accent color - freshness, modernity, friendliness"
+    },
+    "background": {
+      "name": "Soft Gray",
+      "hex": "#F5F7FA",
+      "rgb": { "r": 245, "g": 247, "b": 250 },
+      "hsl": { "h": 220, "s": 33, "l": 97 },
+      "usage": "Background color - calm, neutral, minimalistic"
+    },
+    "text": {
+      "name": "Deep Slate",
+      "hex": "#1F2A33",
+      "rgb": { "r": 31, "g": 42, "b": 51 },
+      "hsl": { "h": 214, "s": 24, "l": 16 },
+      "usage": "Primary text color - readable, professional"
+    },
+    "error": {
+      "name": "Red",
+      "hex": "#E54848",
+      "rgb": { "r": 229, "g": 72, "b": 72 },
+      "hsl": { "h": 0, "s": 74, "l": 59 },
+      "usage": "Error states and destructive actions"
+    },
+    "success": {
+      "name": "Green",
+      "hex": "#3BB273",
+      "rgb": { "r": 59, "g": 178, "b": 115 },
+      "hsl": { "h": 146, "s": 50, "l": 46 },
+      "usage": "Success states and positive actions"
+    }
+  }
+}

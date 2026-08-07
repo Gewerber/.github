@@ -205,7 +205,7 @@ Recommended folder structure:
 brand/
 ├── logo/
 │   ├── svg/
-│   ├── png/
+│   ├── webp/
 │   └── monochrome/
 ├── colors/
 ├── typography/
