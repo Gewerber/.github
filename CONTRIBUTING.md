@@ -38,6 +38,7 @@ See **[ORGANIZATION.md](ORGANIZATION.md)** for the full structure.
 |---|---|---|
 | `gewerber-app` | `Gewerber/gewerber-app` | Flutter Web app |
 | `gewerber-backend` | `Gewerber/gewerber-backend` | Serverpod backend (OSS) |
+| `gewerber-backend--stubs` | `Gewerber/gewerber-backend--stubs` | Public placeholder packages of the commercial module |
 | `gewerber-website` | `Gewerber/gewerber-website` | Jaspr SSR marketing site (`gewerber.de`) |
 | `gewerber-docs` | `Gewerber/gewerber-docs` | Documentation site |
 | `gewerber-examples` | `Gewerber/gewerber-examples` | Example projects |
@@ -48,6 +49,7 @@ See **[ORGANIZATION.md](ORGANIZATION.md)** for the full structure.
 | **Repository** | **Remote** | **Purpose** |
 |---|---|---|
 | `gewerber-backend-commercial` | `Gewerber/gewerber-backend-commercial` | Banking adapters (PSD2), ELSTER, advanced accounting |
+| `gewerber-app-commercial` | `Gewerber/gewerber-app-commercial` | Closed app feature packages + production composition root |
 | `gewerber-business` | `Gewerber/gewerber-business` | Product strategy, PRD, business roadmap, marketing |
 | `gewerber-payments` | `Gewerber/gewerber-payments` | Stripe, subscriptions, billing, feature gating |
 | `gewerber-infra` | `Gewerber/gewerber-infra` | Terraform, Helm, CI/CD secrets, production deployment |
