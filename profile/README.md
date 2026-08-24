@@ -88,7 +88,7 @@ The project is organized as separate git repositories under the Gewerber GitHub 
 
 ### ▶️ Running the backend
 ```bash
-cd gewerber-backend-core
+cd gewerber-backend
 serverpod start
 ```
 
@@ -113,7 +113,7 @@ The Gewerber organization is composed of multiple repositories:
 | **Repository** | **Purpose** |
 |---|---|
 | **gewerber-app** | Flutter application: mobile, web, desktop. Includes UI Kit and client packages. |
-| **gewerber-backend-core** | Serverpod backend for the open-source core: auth, invoicing (without payments), time tracking, guidance. |
+| **gewerber-backend** | Serverpod backend for the open-source core: auth, invoicing (without payments), time tracking, guidance. |
 | **gewerber-website** | Jaspr SSR marketing site (`gewerber.de`). |
 | **gewerber-examples** | Deployment examples, Docker Compose, demo projects, quickstart setups. |
 | **gewerber-docs** *(optional)* | Centralized documentation, architecture, guides. |

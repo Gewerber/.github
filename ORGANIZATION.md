@@ -32,7 +32,7 @@ This document describes the repository architecture inside the **Gewerber** GitH
 | **Repository** | **Purpose** |
 |---|---|
 | **gewerber-app** | Flutter application: mobile, web, desktop. Includes UI Kit and client packages. |
-| **gewerber-backend-core** | Serverpod backend for the open-source core: auth, invoicing (without payments), time tracking, guidance. |
+| **gewerber-backend** | Serverpod backend for the open-source core: auth, invoicing (without payments), time tracking, guidance. |
 | **gewerber-website** | Jaspr SSR marketing site (`gewerber.de`). |
 | **gewerber-examples** | Deployment examples, Docker Compose, demo projects, quickstart setups. |
 | **gewerber-docs** *(optional)* | Centralized documentation, architecture, guides. |
@@ -54,10 +54,10 @@ This document describes the repository architecture inside the **Gewerber** GitH
 
 ## 🔗 Repository Interactions
 
-### 👉 Client → Backend Core
-The Flutter application uses the generated client SDK from `gewerber-backend-core`.
+### 👉 Client → Backend
+The Flutter application uses the generated client SDK from `gewerber-backend`.
 
-### 👉 Backend Core → Backend Commercial
+### 👉 Backend → Commercial
 The open-source core provides stable API contracts.
 Commercial modules extend functionality through private endpoints.
 
@@ -121,7 +121,7 @@ Pull requests affecting closed modules will be rejected.
 
 - **Maintainers** — repository management, reviews, releases
 - **App Developers** — Flutter client development
-- **Backend Core Developers** — OSS backend development
+- **Backend Developers** — OSS backend development
 - **Commercial Developers** — private module development
 - **Ops** — infrastructure, monitoring, deployment
 
