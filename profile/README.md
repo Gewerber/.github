@@ -88,7 +88,7 @@ The project is organized as separate git repositories under the Gewerber GitHub 
 
 ### ▶️ Running the backend
 ```bash
-cd gewerber-backend-core
+cd gewerber-backend
 serverpod start
 ```
 
@@ -112,8 +112,9 @@ The Gewerber organization is composed of multiple repositories:
 
 | **Repository** | **Purpose** |
 |---|---|
-| **gewerber-app** | Flutter application: mobile, web, desktop. Includes UI Kit and client packages. |
-| **gewerber-backend-core** | Serverpod backend for the open-source core: auth, invoicing (without payments), time tracking, guidance. |
+| **gewerber-app** | Flutter application shell: mobile, web, desktop. Includes UI Kit, client packages and the `AppFeature` extension point for private features. |
+| **gewerber-backend** | Serverpod backend for the open-source core: auth, invoicing (without payments), time tracking, guidance. |
+| **gewerber-backend--stubs** | Public placeholder packages of the commercial module; resolves OSS builds and CI without private access. |
 | **gewerber-website** | Jaspr SSR marketing site (`gewerber.de`). |
 | **gewerber-examples** | Deployment examples, Docker Compose, demo projects, quickstart setups. |
 | **gewerber-docs** *(optional)* | Centralized documentation, architecture, guides. |
@@ -124,6 +125,7 @@ The Gewerber organization is composed of multiple repositories:
 | **Repository** | **Purpose** |
 |---|---|
 | **gewerber-backend-commercial** | Banking adapters (PSD2), ELSTER, advanced accounting, closed APIs. |
+| **gewerber-app-commercial** | Closed app feature packages + production composition root (`apps/product`). |
 | **gewerber-business** | Product strategy, PRD, detailed business roadmap, marketing. |
 | **gewerber-payments** | Stripe, subscriptions, billing, feature gating. |
 | **gewerber-infra** | Terraform, Helm, CI/CD secrets, production deployment. |

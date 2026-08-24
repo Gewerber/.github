@@ -31,8 +31,9 @@ This document describes the repository architecture inside the **Gewerber** GitH
 
 | **Repository** | **Purpose** |
 |---|---|
-| **gewerber-app** | Flutter application: mobile, web, desktop. Includes UI Kit and client packages. |
-| **gewerber-backend-core** | Serverpod backend for the open-source core: auth, invoicing (without payments), time tracking, guidance. |
+| **gewerber-app** | Flutter application shell: mobile, web, desktop. Includes UI Kit, client packages and the `AppFeature` extension point for private features. |
+| **gewerber-backend** | Serverpod backend for the open-source core: auth, invoicing (without payments), time tracking, guidance. Renamed from `gewerber-backend-core`. |
+| **gewerber-backend--stubs** | Public placeholder packages of the commercial module; resolves OSS builds and CI without private access. |
 | **gewerber-website** | Jaspr SSR marketing site (`gewerber.de`). |
 | **gewerber-examples** | Deployment examples, Docker Compose, demo projects, quickstart setups. |
 | **gewerber-docs** *(optional)* | Centralized documentation, architecture, guides. |
@@ -44,7 +45,8 @@ This document describes the repository architecture inside the **Gewerber** GitH
 
 | **Repository** | **Purpose** |
 |---|---|
-| **gewerber-backend-commercial** | Banking adapters (PSD2), ELSTER, advanced accounting, closed APIs. |
+| **gewerber-backend-commercial** | Banking adapters (PSD2), ELSTER, advanced accounting, closed APIs (Serverpod module `commercial`). |
+| **gewerber-app-commercial** | Closed app feature packages + production composition root (`apps/product`) building `app.gewerber.de`. |
 | **gewerber-business** | Product strategy, PRD, detailed business roadmap, marketing. |
 | **gewerber-payments** | Stripe, subscriptions, billing, feature gating. |
 | **gewerber-infra** | Terraform, Helm, CI/CD secrets, production deployment. |
@@ -54,12 +56,20 @@ This document describes the repository architecture inside the **Gewerber** GitH
 
 ## 🔗 Repository Interactions
 
-### 👉 Client → Backend Core
-The Flutter application uses the generated client SDK from `gewerber-backend-core`.
+### 👉 Client → Backend
+The Flutter application uses the generated client SDK from `gewerber-backend`.
 
-### 👉 Backend Core → Backend Commercial
+### 👉 Backend → Commercial
 The open-source core provides stable API contracts.
 Commercial modules extend functionality through private endpoints.
+
+### 👉 Open-Core Dependency Wiring
+No public artifact references a private repository. OSS pubspecs resolve the
+commercial module against the public `gewerber-backend--stubs` packages;
+insiders override them via gitignored `pubspec_overrides.yaml`, and release
+CI/Docker injects the real module with a token. Closed app features implement
+the `AppFeature` contract of the OSS shell and are composed in
+`gewerber-app-commercial/apps/product`.
 
 ### 👉 Documentation → All Repositories
 Documentation in `.github` acts as the central entry point.
@@ -121,7 +131,7 @@ Pull requests affecting closed modules will be rejected.
 
 - **Maintainers** — repository management, reviews, releases
 - **App Developers** — Flutter client development
-- **Backend Core Developers** — OSS backend development
+- **Backend Developers** — OSS backend development
 - **Commercial Developers** — private module development
 - **Ops** — infrastructure, monitoring, deployment
 
