@@ -28,7 +28,7 @@ See also **[GOVERNANCE.md](GOVERNANCE.md)** for project governance information.
 
 ## 📁 Repository Structure
 
-This is a planning‑stage repository (`gewerber/gewerber`). The subdirectories are separate git repositories under the Gewerber GitHub organization.
+This document lives in the `.github` repository (`Gewerber/.github`). Each entry below is a separate git repository under the Gewerber GitHub organization.
 
 See **[ORGANIZATION.md](ORGANIZATION.md)** for the full structure.
 
@@ -54,6 +54,7 @@ See **[ORGANIZATION.md](ORGANIZATION.md)** for the full structure.
 | `gewerber-payments` | `Gewerber/gewerber-payments` | Stripe, subscriptions, billing, feature gating |
 | `gewerber-infra` | `Gewerber/gewerber-infra` | Terraform, Helm, CI/CD secrets, production deployment |
 | `gewerber-ops` | `Gewerber/gewerber-ops` | Monitoring, alerts, runbooks, incident playbooks |
+| `gewerber-mcp` | `Gewerber/gewerber-mcp` | Admin/moderator MCP server (Dart, `dart_mcp`) — internal tooling, not open for contribution |
 
 Commercial modules are not part of this repository.
 

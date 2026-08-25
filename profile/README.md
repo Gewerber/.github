@@ -130,6 +130,7 @@ The Gewerber organization is composed of multiple repositories:
 | **gewerber-payments** | Stripe, subscriptions, billing, feature gating. |
 | **gewerber-infra** | Terraform, Helm, CI/CD secrets, production deployment. |
 | **gewerber-ops** | Monitoring, alerts, runbooks, incident playbooks. |
+| **gewerber-mcp** | Admin/moderator MCP server (Dart, `dart_mcp`) — AI-agent-driven replacement of an admin panel; talks to the backend exclusively through Serverpod endpoints. Internal tooling, not part of the open-source core. |
 
 Commercial modules live in private repositories.
 
