@@ -60,6 +60,35 @@ Commercial modules are not part of this repository.
 
 ---
 
+## 🌿 Branching & Release Model
+
+Every repository in the Gewerber organization uses two **long-lived branches**:
+
+| **Branch** | **Purpose** | **Protection** |
+|---|---|---|
+| `main` | Production-ready code | Protected — direct pushes are blocked for everyone, including administrators |
+| `develop` | Integration branch and the source of staging deployments | Protected the same way |
+
+### Day-to-Day Development
+
+- All development happens on **short-lived branches created from `develop`**
+- Branch naming: `feature/<short-name>`, `fix/<short-name>`, `chore/<short-name>`
+- Pull requests always target `develop` — never `main`
+- Delete your feature branch after it is merged
+
+### Releases
+
+Releases ship through a dedicated release pull request: the maintainer opens a PR from `develop` into `main`, and merging it ships the release to production. Staging gets updated automatically from `develop`.
+
+```text
+feature/* ──► PR ──► develop ──► PR (release) ──► main
+
+staging    ◄── develop
+production ◄── main
+```
+
+---
+
 ## 🚀 How to Contribute
 
 ### 1️⃣ Pick an Area to Work On
@@ -81,7 +110,11 @@ Create your own fork and clone it locally.
 
 ### 3️⃣ Create a Feature Branch
 
+Always branch from the freshest `develop`:
+
 ```bash
+git checkout develop
+git pull origin develop
 git checkout -b feature/my-change
 ```
 
@@ -97,6 +130,8 @@ flutter test
 ```
 
 ### 6️⃣ Submit a Pull Request
+
+Pull requests must target the **`develop`** branch — never `main`. Direct pushes to `main` or `develop` are rejected by branch protection.
 
 #### Include:
 
