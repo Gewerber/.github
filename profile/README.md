@@ -118,6 +118,7 @@ The Gewerber organization is composed of multiple repositories:
 | **gewerber-website** | Jaspr SSR marketing site (`gewerber.de`). |
 | **gewerber-examples** | Deployment examples, Docker Compose, demo projects, quickstart setups. |
 | **gewerber-docs** *(optional)* | Centralized documentation, architecture, guides. |
+| **gewerber-mcp** | Open integration tooling: MCP server (Dart, dart_mcp) — admin/moderator toolset plus a per-user mode; server-side per-account data isolation. Integration tooling, not an AI assistant. |
 | **.github** | Organization-wide documentation, issue/PR templates, global policies. |
 
 #### Private Repositories
@@ -130,7 +131,6 @@ The Gewerber organization is composed of multiple repositories:
 | **gewerber-payments** | Stripe, subscriptions, billing, feature gating. |
 | **gewerber-infra** | Terraform, Helm, CI/CD secrets, production deployment. |
 | **gewerber-ops** | Monitoring, alerts, runbooks, incident playbooks. |
-| **gewerber-mcp** | Admin/moderator MCP server (Dart, `dart_mcp`) — AI-agent-driven replacement of an admin panel; talks to the backend exclusively through Serverpod endpoints. Internal tooling, not part of the open-source core. |
 
 Commercial modules live in private repositories.
 
