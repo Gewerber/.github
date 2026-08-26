@@ -37,6 +37,7 @@ This document describes the repository architecture inside the **Gewerber** GitH
 | **gewerber-website** | Jaspr SSR marketing site (`gewerber.de`). |
 | **gewerber-examples** | Deployment examples, Docker Compose, demo projects, quickstart setups. |
 | **gewerber-docs** *(optional)* | Centralized documentation, architecture, guides. |
+| **gewerber-mcp** | Open integration tooling: MCP server (Dart, dart_mcp) talking to the backend exclusively through Serverpod endpoints — an admin/moderator toolset plus a per-user mode; data access is isolated server-side per account. Positioned as integration tooling, not an AI assistant. |
 | **.github** | Organization-wide documentation, issue/PR templates, global policies. |
 
 ---
@@ -51,7 +52,6 @@ This document describes the repository architecture inside the **Gewerber** GitH
 | **gewerber-payments** | Stripe, subscriptions, billing, feature gating. |
 | **gewerber-infra** | Terraform, Helm, CI/CD secrets, production deployment. |
 | **gewerber-ops** | Monitoring, alerts, runbooks, incident playbooks. |
-| **gewerber-mcp** | Admin/moderator MCP server (Dart, `dart_mcp`) — AI-agent-driven replacement of an admin panel; talks to the backend exclusively through Serverpod endpoints. Internal tooling/infrastructure, not part of the open-source core. |
 
 ---
 

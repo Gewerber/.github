@@ -42,6 +42,7 @@ See **[ORGANIZATION.md](ORGANIZATION.md)** for the full structure.
 | `gewerber-website` | `Gewerber/gewerber-website` | Jaspr SSR marketing site (`gewerber.de`) |
 | `gewerber-docs` | `Gewerber/gewerber-docs` | Documentation site |
 | `gewerber-examples` | `Gewerber/gewerber-examples` | Example projects |
+| `gewerber-mcp` | `Gewerber/gewerber-mcp` | Open integration tooling — MCP server (Dart, `dart_mcp`) for admins and end users; per-user data isolation enforced server-side |
 | `.github` | `Gewerber/.github` | Organization profile README |
 
 ### Private Repositories
@@ -54,7 +55,6 @@ See **[ORGANIZATION.md](ORGANIZATION.md)** for the full structure.
 | `gewerber-payments` | `Gewerber/gewerber-payments` | Stripe, subscriptions, billing, feature gating |
 | `gewerber-infra` | `Gewerber/gewerber-infra` | Terraform, Helm, CI/CD secrets, production deployment |
 | `gewerber-ops` | `Gewerber/gewerber-ops` | Monitoring, alerts, runbooks, incident playbooks |
-| `gewerber-mcp` | `Gewerber/gewerber-mcp` | Admin/moderator MCP server (Dart, `dart_mcp`) — internal tooling, not open for contribution |
 
 Commercial modules are not part of this repository.
 
