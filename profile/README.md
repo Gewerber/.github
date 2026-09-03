@@ -114,7 +114,7 @@ The Gewerber organization is composed of multiple repositories:
 |---|---|
 | **gewerber-app** | Flutter application shell: mobile, web, desktop. Includes UI Kit, client packages and the `AppFeature` extension point for private features. |
 | **gewerber-backend** | Serverpod backend for the open-source core: auth, invoicing (without payments), time tracking, guidance. |
-| **gewerber-backend--stubs** | Public placeholder packages of the commercial module; resolves OSS builds and CI without private access. |
+| **gewerber-backend-stubs** | Public placeholder packages of the commercial module; resolves OSS builds and CI without private access. |
 | **gewerber-website** | Jaspr SSR marketing site (`gewerber.de`). |
 | **gewerber-examples** | Deployment examples, Docker Compose, demo projects, quickstart setups. |
 | **gewerber-docs** *(optional)* | Centralized documentation, architecture, guides. |
