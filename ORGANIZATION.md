@@ -33,7 +33,7 @@ This document describes the repository architecture inside the **Gewerber** GitH
 |---|---|
 | **gewerber-app** | Flutter application shell: mobile, web, desktop. Includes UI Kit, client packages and the `AppFeature` extension point for private features. |
 | **gewerber-backend** | Serverpod backend for the open-source core: auth, invoicing (without payments), time tracking, guidance. Renamed from `gewerber-backend-core`. |
-| **gewerber-backend--stubs** | Public placeholder packages of the commercial module; resolves OSS builds and CI without private access. |
+| **gewerber-backend-stubs** | Public placeholder packages of the commercial module; resolves OSS builds and CI without private access. |
 | **gewerber-website** | Jaspr SSR marketing site (`gewerber.de`). |
 | **gewerber-examples** | Deployment examples, Docker Compose, demo projects, quickstart setups. |
 | **gewerber-docs** *(optional)* | Centralized documentation, architecture, guides. |
@@ -66,7 +66,7 @@ Commercial modules extend functionality through private endpoints.
 
 ### 👉 Open-Core Dependency Wiring
 No public artifact references a private repository. OSS pubspecs resolve the
-commercial module against the public `gewerber-backend--stubs` packages;
+commercial module against the public `gewerber-backend-stubs` packages;
 insiders override them via gitignored `pubspec_overrides.yaml`, and release
 CI/Docker injects the real module with a token. Closed app features implement
 the `AppFeature` contract of the OSS shell and are composed in
