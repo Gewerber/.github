@@ -1,5 +1,6 @@
 # Gewerber Brand Book  
-**Version 1.0 — Core Identity & Guidelines**
+**Version 1.1 — Core Identity & Guidelines**  
+*1.1 (2026-09): contrast revision of the semantic palette — Error/Success/Warning/Text-Muted/Accent-Dark deepened to pass WCAG AA on white and the app background; decorative colors unchanged.*
 
 ---
 
@@ -53,14 +54,15 @@ Empower individuals to run their business with clarity, confidence, and zero bur
 | Accent | Gewerber Mint | `#4CD4A9` |
 | Background | Soft Gray | `#F5F7FA` |
 | Text | Deep Slate | `#1F2A33` |
-| Error | Red | `#E54848` |
-| Success | Green | `#3BB273` |
+| Error | Red | `#CC3333` |
+| Success | Green | `#187F4F` |
 
 ### Color Philosophy  
 - Blue = trust, stability, clarity  
 - Mint = freshness, modernity, friendliness  
 - Gray = calm, neutral, minimalistic  
 - Slate = readable, professional  
+- **Contrast rule (v1.1)**: semantic colors used *as text or essential UI* (Error, Success, Warning, Text Muted, Accent Dark) must keep ≥ 4.5:1 (text) / ≥ 3:1 (UI) on White **and** Background — the canonical machine-checked values live in `gewerber-app/test/core/theme/contrast_test.dart`. Deep variants (Error Dark, Success Dark, Warning Dark, Accent Dark) exist for the same roles at higher contrast; the light variants are containers only.
 
 ---
 

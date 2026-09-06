@@ -17,17 +17,19 @@ This folder contains the Gewerber color palette in multiple formats for differen
 | Role | Name | Hex | Usage |
 |------|------|-----|-------|
 | Primary | Gewerber Blue | `#2D6CDF` | Primary actions, links, brand elements |
-| Accent | Gewerber Mint | `#4CD4A9` | Highlights, success states, secondary actions |
+| Accent | Gewerber Mint | `#4CD4A9` | Highlights, decorative accents (containers only — not text) |
 | Background | Soft Gray | `#F5F7FA` | Page background |
 | Surface | White | `#FFFFFF` | Cards, modals, inputs |
 | Text | Deep Slate | `#1F2A33` | Primary text content |
 | Text Secondary | | `#5A6A78` | Supporting text |
-| Text Muted | | `#9AA5B1` | Placeholders, disabled text |
+| Text Muted | | `#64707E` | Placeholders, disabled text (v1.1: contrast ≥ 4.5:1) |
 | Border | | `#E1E5EB` | Dividers, input borders |
-| Error | Red | `#E54848` | Errors, destructive actions |
-| Success | Green | `#3BB273` | Success states, positive actions |
-| Warning | Amber | `#F5A623` | Warnings, caution |
+| Error | Red | `#CC3333` | Errors, destructive actions (v1.1: contrast ≥ 4.5:1) |
+| Success | Green | `#187F4F` | Success states, positive actions (v1.1: contrast ≥ 4.5:1) |
+| Warning | Amber | `#996200` | Warnings, caution (v1.1: contrast ≥ 4.5:1) |
 | Info | Blue | `#2D6CDF` | Information, help |
+
+> **v1.1 contrast revision (2026-09)**: Error, Success, Warning, Text Muted and Accent Dark were deepened so that every token used as text passes WCAG AA (≥ 4.5:1) and every token used as essential UI passes ≥ 3:1 — on White **and** on the `#F5F7FA` background. The previous values (`#E54848`, `#3BB273`, `#F5A623`, `#9AA5B1`, `#2DB387`) failed on both surfaces and are retired. Decorative/container colors (Accent Mint, the `*Light` variants, Primary) are unchanged. Machine-checked thresholds: `gewerber-app/test/core/theme/contrast_test.dart`.
 
 ## Usage Examples
 
@@ -84,11 +86,14 @@ style-dictionary build --config config.json
 
 ## Accessibility
 
-All color combinations meet WCAG AA contrast requirements:
-- Primary on White: 4.8:1 ✓
-- Text on Background: 12.6:1 ✓
-- Error on White: 4.5:1 ✓
-- Success on White: 4.5:1 ✓
+All color combinations meet WCAG AA contrast requirements (v1.1 values, verified on White and Background #F5F7FA):
+- Primary on White: 4.86:1 ✓
+- Text on Background: 13.61:1 ✓
+- Error (`#CC3333`) on White: 5.14:1 ✓
+- Success (`#187F4F`) on White: 5.01:1 ✓
+- Warning (`#996200`) on White: 5.12:1 ✓
+- Text Muted (`#64707E`) on White: 5.05:1 ✓
+- Accent Dark (`#1D9570`) on White: 3.76:1 ✓ (UI graphics, ≥ 3:1)
 
 ## Dark Mode
 
