@@ -30,14 +30,14 @@
     },
     "error": {
       "name": "Red",
-      "hex": "#E54848",
+      "hex": "#CC3333",
       "rgb": { "r": 229, "g": 72, "b": 72 },
       "hsl": { "h": 0, "s": 74, "l": 59 },
       "usage": "Error states and destructive actions"
     },
     "success": {
       "name": "Green",
-      "hex": "#3BB273",
+      "hex": "#187F4F",
       "rgb": { "r": 59, "g": 178, "b": 115 },
       "hsl": { "h": 146, "s": 50, "l": 46 },
       "usage": "Success states and positive actions"

@@ -20,7 +20,7 @@ class GewerberColors {
   static const Color accent = Color(0xFF4CD4A9);
   static const Color accentHover = Color(0xFF38C496);
   static const Color accentLight = Color(0xFFE8FAF3);
-  static const Color accentDark = Color(0xFF2DB387);
+  static const Color accentDark = Color(0xFF1D9570);
 
   /// Neutral colors
   static const Color background = Color(0xFFF5F7FA);
@@ -30,21 +30,21 @@ class GewerberColors {
   /// Text colors
   static const Color text = Color(0xFF1F2A33);
   static const Color textSecondary = Color(0xFF5A6A78);
-  static const Color textMuted = Color(0xFF9AA5B1);
+  static const Color textMuted = Color(0xFF64707E);
   static const Color textInverse = Color(0xFFFFFFFF);
 
   /// Semantic colors
-  static const Color error = Color(0xFFE54848);
+  static const Color error = Color(0xFFCC3333);
   static const Color errorLight = Color(0xFFFDEAEA);
-  static const Color errorDark = Color(0xFFC43A3A);
+  static const Color errorDark = Color(0xFFB12222);
 
-  static const Color success = Color(0xFF3BB273);
+  static const Color success = Color(0xFF187F4F);
   static const Color successLight = Color(0xFFE8F7EE);
-  static const Color successDark = Color(0xFF2D8F5A);
+  static const Color successDark = Color(0xFF157347);
 
-  static const Color warning = Color(0xFFF5A623);
+  static const Color warning = Color(0xFF996200);
   static const Color warningLight = Color(0xFFFFF4E6);
-  static const Color warningDark = Color(0xFFD48F1A);
+  static const Color warningDark = Color(0xFF7A4E00);
 
   static const Color info = Color(0xFF2D6CDF);
   static const Color infoLight = Color(0xFFE8F0FD);
@@ -85,34 +85,34 @@ class GewerberColors {
 
   /// Semantic color swatches
   static const MaterialColor errorSwatch = MaterialColor(
-    0xFFE54848,
+    0xFFCC3333,
     <int, Color>{
       50: Color(0xFFFDEAEA),
       100: Color(0xFFFBD5D5),
       200: Color(0xFFF7ABA8),
-      300: Color(0xFFF3807B),
-      400: Color(0xFFEE554E),
-      500: Color(0xFFE54848),
-      600: Color(0xFFD93D3D),
-      700: Color(0xFFCC3030),
-      800: Color(0xFFBF2525),
-      900: Color(0xFFAD1212),
+      300: Color(0xFFEF6A64),
+      400: Color(0xFFE04A46),
+      500: Color(0xFFCC3333),
+      600: Color(0xFFC02C2C),
+      700: Color(0xFFB12222),
+      800: Color(0xFF971D1D),
+      900: Color(0xFF7D1717),
     },
   );
 
   static const MaterialColor successSwatch = MaterialColor(
-    0xFF3BB273,
+    0xFF187F4F,
     <int, Color>{
       50: Color(0xFFE8F7EE),
       100: Color(0xFFD1EFDD),
       200: Color(0xFFA3DFBC),
-      300: Color(0xFF75CF9B),
-      400: Color(0xFF4DC07A),
-      500: Color(0xFF3BB273),
-      600: Color(0xFF35A069),
-      700: Color(0xFF2D8C5C),
-      800: Color(0xFF267950),
-      900: Color(0xFF1B5D3E),
+      300: Color(0xFF5CB885),
+      400: Color(0xFF33A366),
+      500: Color(0xFF187F4F),
+      600: Color(0xFF16784A),
+      700: Color(0xFF146A40),
+      800: Color(0xFF125C37),
+      900: Color(0xFF0F5234),
     },
   );
 
