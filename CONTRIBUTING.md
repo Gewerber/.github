@@ -5,7 +5,7 @@ Thank you for your interest in contributing to **Gewerber Core**! This document 
 Gewerber follows an **open‑core model**:
 
 - **Open Source:** invoicing, time tracking, basic accounting, guidance, UI kit
-- **Closed Source:** banking, tax/ELSTER, employees, subscriptions, AI assistant
+- **Closed Source:** banking (PSD2), tax/ELSTER, employees & payroll, subscriptions & billing, AI assistant, advanced accounting, multi-currency invoicing
 
 Please read this document carefully before contributing.
 
@@ -39,10 +39,9 @@ See **[ORGANIZATION.md](ORGANIZATION.md)** for the full structure.
 | `gewerber-app` | `Gewerber/gewerber-app` | Flutter Web app |
 | `gewerber-backend` | `Gewerber/gewerber-backend` | Serverpod backend (OSS) |
 | `gewerber-backend-stubs` | `Gewerber/gewerber-backend-stubs` | Public placeholder packages of the commercial module |
-| `gewerber-website` | `Gewerber/gewerber-website` | Jaspr SSR marketing site (`gewerber.de`) |
 | `gewerber-docs` | `Gewerber/gewerber-docs` | Documentation site |
 | `gewerber-examples` | `Gewerber/gewerber-examples` | Example projects |
-| `gewerber-mcp` | `Gewerber/gewerber-mcp` | Open integration tooling — MCP server (Dart, `dart_mcp`) for admins and end users; per-user data isolation enforced server-side |
+| `gewerber-mcp` | `Gewerber/gewerber-mcp` | Open integration tooling — MCP server (Dart, `dart_mcp`) over stdio, staff-facing admin/moderator tooling, roles enforced server-side |
 | `.github` | `Gewerber/.github` | Organization profile README |
 
 ### Private Repositories
@@ -52,9 +51,10 @@ See **[ORGANIZATION.md](ORGANIZATION.md)** for the full structure.
 | `gewerber-backend-commercial` | `Gewerber/gewerber-backend-commercial` | Banking adapters (PSD2), ELSTER, advanced accounting |
 | `gewerber-app-commercial` | `Gewerber/gewerber-app-commercial` | Closed app feature packages + production composition root |
 | `gewerber-business` | `Gewerber/gewerber-business` | Product strategy, PRD, business roadmap, marketing |
-| `gewerber-payments` | `Gewerber/gewerber-payments` | Stripe, subscriptions, billing, feature gating |
+| `gewerber-payments` | `Gewerber/gewerber-payments` | Payment processing (planned — subscription & billing currently implemented in `gewerber-backend-commercial`) |
 | `gewerber-infra` | `Gewerber/gewerber-infra` | Terraform, Helm, CI/CD secrets, production deployment |
 | `gewerber-ops` | `Gewerber/gewerber-ops` | Monitoring, alerts, runbooks, incident playbooks |
+| `gewerber-website` | `Gewerber/gewerber-website` | Jaspr SSR marketing site (`gewerber.de`); privately maintained |
 
 Commercial modules are not part of this repository.
 
@@ -75,6 +75,8 @@ Every repository in the Gewerber organization uses two **long-lived branches**:
 - Branch naming: `feature/<short-name>`, `fix/<short-name>`, `chore/<short-name>`
 - Pull requests always target `develop` — never `main`
 - Delete your feature branch after it is merged
+
+> **Note:** `gewerber-backend`, `.github`, and `gewerber-app` enforce linear history via repository rulesets. Pull requests in these repositories are merged with **squash or rebase** — never merge commits.
 
 ### Releases
 
@@ -122,11 +124,28 @@ git checkout -b feature/my-change
 
 Follow the coding guidelines below.
 
-### 5️⃣ Run Tests
+### 5️⃣ Run Checks & Tests
+
+Before submitting a pull request, run in this order:
 
 ```bash
+dart analyze
+dart format .
 dart test
 flutter test
+```
+
+After changing `.spy.yaml` models, regenerate the code and create a migration:
+
+```bash
+serverpod generate
+serverpod create-migration
+```
+
+After changing injectable DI configuration, regenerate the service locator:
+
+```bash
+dart run build_runner build
 ```
 
 ### 6️⃣ Submit a Pull Request
@@ -170,13 +189,13 @@ Pull requests must target the **`develop`** branch — never `main`. Direct push
 
 The following modules are closed source and not open for contributions:
 
-- **Banking**
+- **Banking (PSD2)**
 - **Tax/ELSTER**
-- **Employees**
-- **Subscriptions**
+- **Employees & payroll**
+- **Subscriptions & billing**
 - **AI assistant**
-- **Multi‑currency invoicing**
 - **Advanced accounting**
+- **Multi-currency invoicing**
 
 Pull requests touching these areas will be rejected.
 
@@ -189,7 +208,7 @@ We use:
 - `dart test` for backend logic
 - `flutter test` for UI logic
 - Manual testing for Flutter Web
-- Integration tests (future)
+- Integration tests using `withServerpod` — running them requires the test Postgres compose service (port 9090): `docker compose up -d postgres_test` from `gewerber_backend_server/`
 
 ---
 
