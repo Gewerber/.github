@@ -34,10 +34,9 @@ This document describes the repository architecture inside the **Gewerber** GitH
 | **gewerber-app** | Flutter application shell: mobile, web, desktop. Includes UI Kit, client packages and the `AppFeature` extension point for private features. |
 | **gewerber-backend** | Serverpod backend for the open-source core: auth, invoicing (without payments), time tracking, guidance. Renamed from `gewerber-backend-core`. |
 | **gewerber-backend-stubs** | Public placeholder packages of the commercial module; resolves OSS builds and CI without private access. |
-| **gewerber-website** | Jaspr SSR marketing site (`gewerber.de`). |
 | **gewerber-examples** | Deployment examples, Docker Compose, demo projects, quickstart setups. |
 | **gewerber-docs** *(optional)* | Centralized documentation, architecture, guides. |
-| **gewerber-mcp** | Open integration tooling: MCP server (Dart, dart_mcp) talking to the backend exclusively through Serverpod endpoints — an admin/moderator toolset plus a per-user mode; data access is isolated server-side per account. Positioned as integration tooling, not an AI assistant. |
+| **gewerber-mcp** | Open integration tooling: MCP server (Dart, `dart_mcp`) over stdio — staff-facing admin/moderator toolset; talks to the backend exclusively through Serverpod endpoints. Positioned as integration tooling, not an AI assistant. |
 | **.github** | Organization-wide documentation, issue/PR templates, global policies. |
 
 ---
@@ -49,9 +48,10 @@ This document describes the repository architecture inside the **Gewerber** GitH
 | **gewerber-backend-commercial** | Banking adapters (PSD2), ELSTER, advanced accounting, closed APIs (Serverpod module `commercial`). |
 | **gewerber-app-commercial** | Closed app feature packages + production composition root (`apps/product`) building `app.gewerber.de`. |
 | **gewerber-business** | Product strategy, PRD, detailed business roadmap, marketing. |
-| **gewerber-payments** | Stripe, subscriptions, billing, feature gating. |
+| **gewerber-payments** | Payment processing (planned — subscription & billing currently implemented in `gewerber-backend-commercial`). |
 | **gewerber-infra** | Terraform, Helm, CI/CD secrets, production deployment. |
 | **gewerber-ops** | Monitoring, alerts, runbooks, incident playbooks. |
+| **gewerber-website** | Jaspr SSR marketing site (`gewerber.de`); privately maintained. |
 
 ---
 
@@ -94,6 +94,7 @@ Documentation in `.github` acts as the central entry point.
 - Subscriptions & billing
 - AI assistant
 - Advanced accounting
+- Multi-currency invoicing
 
 Pull requests affecting closed modules will be rejected.
 
@@ -141,8 +142,11 @@ Pull requests affecting closed modules will be rejected.
 ## 📄 Files in the `.github` Repository
 
 - `profile/README.md` — organization homepage
+- `BRAND_BOOK.md`
 - `CODE_OF_CONDUCT.md`
+- `COMMUNITY.md`
 - `CONTRIBUTING.md`
+- `CONTRIBUTORS.md`
 - `SECURITY.md`
 - `SUPPORT.md`
 - `GOVERNANCE.md`
