@@ -76,7 +76,8 @@ Every repository in the Gewerber organization uses two **long-lived branches**:
 - Pull requests always target `develop` — never `main`
 - Delete your feature branch after it is merged
 
-> **Note:** `gewerber-backend`, `.github`, and `gewerber-app` enforce linear history via repository rulesets. Pull requests in these repositories are merged with **squash or rebase** — never merge commits.
+> **Note:** All merge methods (merge commit, squash, rebase) are allowed on pull
+> requests. The former linear-history ruleset restrictions were removed on 2026-09-12.
 
 ### Releases
 
