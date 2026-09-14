@@ -38,7 +38,7 @@ See **[ORGANIZATION.md](ORGANIZATION.md)** for the full structure.
 |---|---|---|
 | `gewerber-app` | `Gewerber/gewerber-app` | Flutter Web app |
 | `gewerber-backend` | `Gewerber/gewerber-backend` | Serverpod backend (OSS) |
-| `gewerber-backend-stubs` | `Gewerber/gewerber-backend-stubs` | Public placeholder packages of the commercial module |
+| `gewerber-backend-stubs` | `Gewerber/gewerber-backend-stubs` | Public contract packages of the commercial module (health, waitlist, wiring entrypoint) |
 | `gewerber-docs` | `Gewerber/gewerber-docs` | Documentation site |
 | `gewerber-examples` | `Gewerber/gewerber-examples` | Example projects |
 | `gewerber-mcp` | `Gewerber/gewerber-mcp` | Open integration tooling — MCP server (Dart, `dart_mcp`) over stdio, staff-facing admin/moderator tooling, roles enforced server-side |
