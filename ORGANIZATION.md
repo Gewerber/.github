@@ -33,7 +33,7 @@ This document describes the repository architecture inside the **Gewerber** GitH
 |---|---|
 | **gewerber-app** | Flutter application shell: mobile, web, desktop. Includes UI Kit, client packages and the `AppFeature` extension point for private features. |
 | **gewerber-backend** | Serverpod backend for the open-source core: auth, invoicing (without payments), time tracking, guidance. Renamed from `gewerber-backend-core`. |
-| **gewerber-backend-stubs** | Public placeholder packages of the commercial module; resolves OSS builds and CI without private access. |
+| **gewerber-backend-stubs** | Public contract packages of the commercial module (health endpoint, waitlist API, billing-wiring entrypoint — no closed API surface); resolves OSS builds and CI without private access. |
 | **gewerber-examples** | Deployment examples, Docker Compose, demo projects, quickstart setups. |
 | **gewerber-docs** *(optional)* | Centralized documentation, architecture, guides. |
 | **gewerber-mcp** | Open integration tooling: MCP server (Dart, `dart_mcp`) over stdio — staff-facing admin/moderator toolset; talks to the backend exclusively through Serverpod endpoints. Positioned as integration tooling, not an AI assistant. |
@@ -61,16 +61,21 @@ This document describes the repository architecture inside the **Gewerber** GitH
 The Flutter application uses the generated client SDK from `gewerber-backend`.
 
 ### 👉 Backend → Commercial
-The open-source core provides stable API contracts.
-Commercial modules extend functionality through private endpoints.
+The commercial module is a plugin: the OSS core provides stable API contracts
+and integrates the module through its minimal public contract only (health
+endpoint, public waitlist API, one billing-wiring entrypoint). The module owns
+its wiring and closed endpoints internally; the host never imports module
+internals.
 
 ### 👉 Open-Core Dependency Wiring
 No public artifact references a private repository. OSS pubspecs resolve the
-commercial module against the public `gewerber-backend-stubs` packages;
-insiders override them via gitignored `pubspec_overrides.yaml`, and release
-CI/Docker injects the real module with a token. Closed app features implement
-the `AppFeature` contract of the OSS shell and are composed in
-`gewerber-app-commercial/apps/product`.
+commercial module against the public `gewerber-backend-stubs` packages, which
+mirror the module's public contract — not its full API surface — so the
+generated OSS client carries no closed endpoints; insiders override them via
+gitignored `pubspec_overrides.yaml`, and release CI/Docker injects the real
+module with a token. Closed app features implement the `AppFeature` contract
+of the OSS shell and are composed in `gewerber-app-commercial/apps/product`,
+whose builds pin the real (non-stub) commercial client.
 
 ### 👉 Documentation → All Repositories
 Documentation in `.github` acts as the central entry point.
