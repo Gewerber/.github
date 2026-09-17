@@ -1,4 +1,4 @@
-# 🤝 Contributing to Gewerber (Open Core)
+# Contributing to Gewerber (Open Core)
 
 Thank you for your interest in contributing to **Gewerber Core**! This document explains how to participate, submit changes, and collaborate with the community.
 
@@ -11,7 +11,7 @@ Please read this document carefully before contributing.
 
 ---
 
-## 📜 Code of Conduct
+## Code of Conduct
 
 By participating, you agree to uphold our community standards:
 
@@ -26,7 +26,7 @@ See also **[GOVERNANCE.md](GOVERNANCE.md)** for project governance information.
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 This document lives in the `.github` repository (`Gewerber/.github`). Each entry below is a separate git repository under the Gewerber GitHub organization.
 
@@ -60,7 +60,7 @@ Commercial modules are not part of this repository.
 
 ---
 
-## 🌿 Branching & Release Model
+## Branching & Release Model
 
 Every repository in the Gewerber organization uses two **long-lived branches**:
 
@@ -92,9 +92,9 @@ production ◄── main
 
 ---
 
-## 🚀 How to Contribute
+## How to Contribute
 
-### 1️⃣ Pick an Area to Work On
+### 1. Pick an Area to Work On
 
 You can contribute to:
 
@@ -107,11 +107,11 @@ You can contribute to:
 - **Bug fixes**
 - **Performance improvements**
 
-### 2️⃣ Fork the Repository
+### 2. Fork the Repository
 
 Create your own fork and clone it locally.
 
-### 3️⃣ Create a Feature Branch
+### 3. Create a Feature Branch
 
 Always branch from the freshest `develop`:
 
@@ -121,11 +121,11 @@ git pull origin develop
 git checkout -b feature/my-change
 ```
 
-### 4️⃣ Make Your Changes
+### 4. Make Your Changes
 
 Follow the coding guidelines below.
 
-### 5️⃣ Run Checks & Tests
+### 5. Run Checks & Tests
 
 Before submitting a pull request, run in this order:
 
@@ -149,7 +149,7 @@ After changing injectable DI configuration, regenerate the service locator:
 dart run build_runner build
 ```
 
-### 6️⃣ Submit a Pull Request
+### 6. Submit a Pull Request
 
 Pull requests must target the **`develop`** branch — never `main`. Direct pushes to `main` or `develop` are rejected by branch protection.
 
@@ -162,23 +162,23 @@ Pull requests must target the **`develop`** branch — never `main`. Direct push
 
 ---
 
-## 📏 Coding Guidelines
+## Coding Guidelines
 
-### 🐦 Dart & Flutter
+### Dart & Flutter
 
 - Use `dart format`
 - Follow Effective Dart
 - Keep widgets small and composable
 - Use Bloc (depending on project conventions)
 
-### 🖥 Serverpod
+### Serverpod
 
 - Keep endpoints modular
 - Use DTOs for request/response
 - Avoid business logic in endpoints
 - Write migrations for schema changes
 
-### 🌐 Jaspr
+### Jaspr
 
 - Keep pages small
 - Use components for reusable UI
@@ -186,7 +186,7 @@ Pull requests must target the **`develop`** branch — never `main`. Direct push
 
 ---
 
-## 🚫 What You Cannot Contribute To
+## What You Cannot Contribute To
 
 The following modules are closed source and not open for contributions:
 
@@ -202,7 +202,7 @@ Pull requests touching these areas will be rejected.
 
 ---
 
-## 🧪 Testing
+## Testing
 
 We use:
 
@@ -213,7 +213,7 @@ We use:
 
 ---
 
-## 🗺 Roadmap
+## Roadmap
 
 You can contribute to any open‑source roadmap item:
 
@@ -227,7 +227,7 @@ See **[ROADMAP.md](https://github.com/Gewerber/gewerber-docs/blob/main/ROADMAP.m
 
 ---
 
-## 🙌 Thank You
+## Thank You
 
 Your contributions help Gewerber grow into a powerful, friendly platform for small business owners in Germany.
 

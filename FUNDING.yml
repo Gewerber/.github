@@ -1,5 +1,8 @@
 # 🍪 Gewerber Funding Configuration
 # Support Gewerber development through GitHub Sponsors and other platforms.
 
-github: dimoshka
+github: true
+github_sponsors: true
 buy_me_a_coffee: gewerber
+open_collective: Gewerber
+patreon: dimoshka

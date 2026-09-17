@@ -35,8 +35,8 @@ This document describes the repository architecture inside the **Gewerber** GitH
 | **gewerber-backend** | Serverpod backend for the open-source core: auth, invoicing (without payments), time tracking, guidance. Renamed from `gewerber-backend-core`. |
 | **gewerber-backend-stubs** | Public contract packages of the commercial module (health endpoint, waitlist API, billing-wiring entrypoint — no closed API surface); resolves OSS builds and CI without private access. |
 | **gewerber-examples** | Deployment examples, Docker Compose, demo projects, quickstart setups. |
-| **gewerber-docs** *(optional)* | Centralized documentation, architecture, guides. |
-| **gewerber-mcp** | Open integration tooling: MCP server (Dart, `dart_mcp`) over stdio — staff-facing admin/moderator toolset; talks to the backend exclusively through Serverpod endpoints. Positioned as integration tooling, not an AI assistant. |
+| **gewerber-docs** | Centralized documentation, architecture, guides. |
+| **gewerber-mcp** | Open integration tooling: MCP server (Dart, `dart_mcp`) over stdio — admin/moderator toolset plus a per-user mode; server-side per-account data isolation. Talks to the backend exclusively through Serverpod endpoints. Integration tooling, not an AI assistant. |
 | **.github** | Organization-wide documentation, issue/PR templates, global policies. |
 
 ---
@@ -51,7 +51,7 @@ This document describes the repository architecture inside the **Gewerber** GitH
 | **gewerber-payments** | Payment processing (planned — subscription & billing currently implemented in `gewerber-backend-commercial`). |
 | **gewerber-infra** | Terraform, Helm, CI/CD secrets, production deployment. |
 | **gewerber-ops** | Monitoring, alerts, runbooks, incident playbooks. |
-| **gewerber-website** | Jaspr SSR marketing site (`gewerber.de`); privately maintained. |
+| **gewerber-website** | Jaspr SSR marketing site (`gewerber.de`); private repo — the site output at `gewerber.de` is public. |
 
 ---
 
