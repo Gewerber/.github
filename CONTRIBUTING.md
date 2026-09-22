@@ -51,10 +51,15 @@ See **[ORGANIZATION.md](ORGANIZATION.md)** for the full structure.
 | `gewerber-backend-commercial` | `Gewerber/gewerber-backend-commercial` | Banking adapters (PSD2), ELSTER, advanced accounting |
 | `gewerber-app-commercial` | `Gewerber/gewerber-app-commercial` | Closed app feature packages + production composition root |
 | `gewerber-business` | `Gewerber/gewerber-business` | Product strategy, PRD, business roadmap, marketing |
-| `gewerber-payments` | `Gewerber/gewerber-payments` | Payment processing (planned — subscription & billing currently implemented in `gewerber-backend-commercial`) |
-| `gewerber-infra` | `Gewerber/gewerber-infra` | Terraform, Helm, CI/CD secrets, production deployment |
-| `gewerber-ops` | `Gewerber/gewerber-ops` | Monitoring, alerts, runbooks, incident playbooks |
 | `gewerber-website` | `Gewerber/gewerber-website` | Jaspr SSR marketing site (`gewerber.de`); privately maintained |
+
+### Planned Repositories (not yet created)
+
+| **Repository** | **Remote** | **Purpose** |
+|---|---|---|
+| `gewerber-payments` | `Gewerber/gewerber-payments` | Payment processing (planned — subscription & billing currently implemented in `gewerber-backend-commercial`) |
+| `gewerber-infra` | `Gewerber/gewerber-infra` | Terraform, Helm, CI/CD secrets, production deployment (planned) |
+| `gewerber-ops` | `Gewerber/gewerber-ops` | Monitoring, alerts, runbooks, incident playbooks (planned) |
 
 Commercial modules are not part of this repository.
 
