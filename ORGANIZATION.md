@@ -48,10 +48,15 @@ This document describes the repository architecture inside the **Gewerber** GitH
 | **gewerber-backend-commercial** | Banking adapters (PSD2), ELSTER, advanced accounting, closed APIs (Serverpod module `commercial`). |
 | **gewerber-app-commercial** | Closed app feature packages + production composition root (`apps/product`) building `app.gewerber.de`. |
 | **gewerber-business** | Product strategy, PRD, detailed business roadmap, marketing. |
-| **gewerber-payments** | Payment processing (planned — subscription & billing currently implemented in `gewerber-backend-commercial`). |
-| **gewerber-infra** | Terraform, Helm, CI/CD secrets, production deployment. |
-| **gewerber-ops** | Monitoring, alerts, runbooks, incident playbooks. |
 | **gewerber-website** | Jaspr SSR marketing site (`gewerber.de`); privately maintained. |
+
+### 🗓 Planned Repositories (not yet created)
+
+| **Repository** | **Purpose** |
+|---|---|
+| **gewerber-payments** | Payment processing (planned — subscription & billing currently implemented in `gewerber-backend-commercial`). |
+| **gewerber-infra** | Terraform, Helm, CI/CD secrets, production deployment (planned). |
+| **gewerber-ops** | Monitoring, alerts, runbooks, incident playbooks (planned). |
 
 ---
 

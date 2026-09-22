@@ -115,10 +115,9 @@ The Gewerber organization is composed of multiple repositories:
 | **gewerber-app** | Flutter application shell: mobile, web, desktop. Includes UI Kit, client packages and the `AppFeature` extension point for private features. |
 | **gewerber-backend** | Serverpod backend for the open-source core: auth, invoicing (without payments), time tracking, guidance. |
 | **gewerber-backend-stubs** | Public contract packages of the commercial module (health endpoint, waitlist API, billing-wiring entrypoint — no closed API surface); resolves OSS builds and CI without private access. |
-| **gewerber-website** | Jaspr SSR marketing site (`gewerber.de`). |
 | **gewerber-examples** | Deployment examples, Docker Compose, demo projects, quickstart setups. |
 | **gewerber-docs** *(optional)* | Centralized documentation, architecture, guides. |
-| **gewerber-mcp** | Open integration tooling: MCP server (Dart, dart_mcp) — admin/moderator toolset plus a per-user mode; server-side per-account data isolation. Integration tooling, not an AI assistant. |
+| **gewerber-mcp** | Open integration tooling: MCP server (Dart, `dart_mcp`) over stdio — staff-facing admin/moderator toolset; roles enforced server-side. Integration tooling, not an AI assistant. |
 | **.github** | Organization-wide documentation, issue/PR templates, global policies. |
 
 #### Private Repositories
@@ -128,9 +127,15 @@ The Gewerber organization is composed of multiple repositories:
 | **gewerber-backend-commercial** | Banking adapters (PSD2), ELSTER, advanced accounting, closed APIs. |
 | **gewerber-app-commercial** | Closed app feature packages + production composition root (`apps/product`). |
 | **gewerber-business** | Product strategy, PRD, detailed business roadmap, marketing. |
-| **gewerber-payments** | Stripe, subscriptions, billing, feature gating. |
-| **gewerber-infra** | Terraform, Helm, CI/CD secrets, production deployment. |
-| **gewerber-ops** | Monitoring, alerts, runbooks, incident playbooks. |
+| **gewerber-website** | Jaspr SSR marketing site (`gewerber.de`); privately maintained. |
+
+#### Planned Repositories (not yet created)
+
+| **Repository** | **Purpose** |
+|---|---|
+| **gewerber-payments** | Payment processing (planned) — subscription & billing currently implemented in `gewerber-backend-commercial`. |
+| **gewerber-infra** | Terraform, Helm, CI/CD secrets, production deployment (planned). |
+| **gewerber-ops** | Monitoring, alerts, runbooks, incident playbooks (planned). |
 
 Commercial modules live in private repositories.
 
