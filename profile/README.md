@@ -1,162 +1,52 @@
-# 📘 Gewerber — Open Core Business Platform for Solo Gewerbe Owners
+# Gewerber — Open-Source Invoicing for Solo Businesses in Germany
 
-**Gewerber** is a Dart‑based open‑core platform designed for Einzelunternehmer, Kleingewerbe, and micro‑business owners in Germany. It simplifies invoicing, time tracking, basic accounting, and business guidance through a unified codebase:
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/Gewerber/.github/blob/main/LICENSE.md)
+[![Live app](https://img.shields.io/badge/App-app.gewerber.de-blue)](https://app.gewerber.de)
+[![Website](https://img.shields.io/badge/Web-gewerber.de-blue)](https://gewerber.de)
+[![Docs](https://img.shields.io/badge/Docs-gewerber--docs-blue)](https://github.com/Gewerber/gewerber-docs)
 
-- **Backend:** Serverpod
-- **Web App:** Flutter Web (`https://app.gewerber.de`)
-- **Mobile/Desktop:** Flutter
-- **Marketing Site:** Jaspr
-- **Open Core:** OSS modules
-- **Commercial Extensions:** banking, tax/ELSTER, employees, subscriptions, AI assistant
+**Gewerber** is free, open-source software for **invoicing** and everyday business admin, built for
+**freelancers**, **solo businesses**, **Einzelunternehmer** and **Kleinunternehmer** in **Germany**.
+We take care of the paperwork — including Kleinunternehmer §19 and VAT logic — so you can run your business.
 
-Gewerber is built for users who find German bureaucracy overwhelming. The open‑source core provides essential tools, while commercial modules enable advanced business operations.
+## Who Is It For?
 
----
+- Solo founders, side businesses and micro-businesses in Germany.
+- Anyone who finds German bureaucracy overwhelming and wants plain-language guidance.
+- Contributors who want an open core with a clear boundary to commercial SaaS.
 
-## 🎯 Features (Open Source Core)
+## Open-Source Core
 
-### 💰 Invoicing
-- PDF generation
-- **EN/RU/DE** templates
-- **Kleinunternehmer §19** logic
-- **VAT** logic
-- CSV/JSON export
+The essentials, free forever under MIT:
 
-### ⏱ Time Tracking
-- Projects & tasks
-- Start/stop timer
-- Manual entries
-- Rounding rules
-- Reports
+- **Invoicing** — professional PDFs, multilingual templates, CSV/JSON export.
+- **Time tracking** — projects, timer, manual entries and reports.
+- **Basic accounting** — income, expenses, receipts and Steuerberater-ready export.
+- **Guidance** — checklists and plain-language help where German forms get confusing.
 
-### 📊 Basic Accounting
-- Income & expense tracking
-- Receipt upload
-- Categorization
-- Basic **P&L**
-- Export for Steuerberater
+## Commercial SaaS
 
-### 📖 Guidance System
-- Tooltips
-- Checklists
-- **"What is this?"** popups
-- Blog integration
+Advanced capabilities beyond the open core are offered as a paid hosted service.
+See [gewerber.de](https://gewerber.de) for current plans — the open core stays free and MIT-licensed.
 
-### 🎨 UI Kit
-- Shared Flutter components
-- Forms, tables, cards, layouts
+## Start Here
 
----
+- Try it: [app.gewerber.de](https://app.gewerber.de) · Learn more: [gewerber.de](https://gewerber.de)
+- Read the [docs](https://github.com/Gewerber/gewerber-docs).
+- Run the quickstart in [gewerber-examples](https://github.com/Gewerber/gewerber-examples).
+- Browse all repositories in [ORGANIZATION.md](https://github.com/Gewerber/.github/blob/main/ORGANIZATION.md).
 
-## 🔒 Commercial Modules (Closed Source)
+## Contribute
 
-These modules are part of the Gewerber SaaS and not included in the open‑source core:
+Everyone is welcome. Good first steps:
 
-### 🏦 Banking Integration
-### 📋 Tax/ELSTER Integration
-### 👥 Employees & Payroll
-### 💳 Subscriptions & Billing
-### 🤖 AI Assistant
+- Read [CONTRIBUTING.md](https://github.com/Gewerber/.github/blob/main/CONTRIBUTING.md) and the
+  [Code of Conduct](https://github.com/Gewerber/.github/blob/main/CODE_OF_CONDUCT.md).
+- Pick a [good first issue](https://github.com/search?q=org%3AGewerber+label%3Agood-first-issue&type=issues).
+- Ask for help in [SUPPORT.md](https://github.com/Gewerber/.github/blob/main/SUPPORT.md) or join the
+  [community](https://github.com/Gewerber/.github/blob/main/COMMUNITY.md).
 
-They provide advanced functionality for Pro/Business users.
+## License
 
----
-
-## 🏗 Architecture
-
-Gewerber uses a single‑language Dart stack:
-
-- **Serverpod** for backend services
-- **Flutter Web** for the application UI
-- **Flutter Mobile/Desktop** for native apps
-- **Jaspr** for the marketing site
-- **PostgreSQL** for data
-- **S3-compatible** storage for documents
-
-The project is organized as separate git repositories under the Gewerber GitHub organization. See **[ORGANIZATION.md](https://github.com/Gewerber/.github/blob/main/ORGANIZATION.md)** for the full repository structure.
-
----
-
-## 🚀 Getting Started
-
-### 📋 Requirements
-- **Dart SDK**
-- **Flutter SDK**
-- **Serverpod CLI**
-- **PostgreSQL**
-- **Docker** (optional)
-
-### ▶️ Running the backend
-```bash
-cd gewerber-backend
-serverpod start
-```
-
-### ▶️ Running the Flutter Web app
-```bash
-cd gewerber-app
-flutter run -d chrome
-```
-
-### ▶️ Running the Jaspr site
-```bash
-cd gewerber-website
-jaspr serve
-```
-
-### 📁 Repository Structure
-
-The Gewerber organization is composed of multiple repositories:
-
-#### Public Repositories
-
-| **Repository** | **Purpose** |
-|---|---|
-| **gewerber-app** | Flutter application shell: mobile, web, desktop. Includes UI Kit, client packages and the `AppFeature` extension point for private features. |
-| **gewerber-backend** | Serverpod backend for the open-source core: auth, invoicing (without payments), time tracking, guidance. |
-| **gewerber-backend-stubs** | Public contract packages of the commercial module (health endpoint, waitlist API, billing-wiring entrypoint — no closed API surface); resolves OSS builds and CI without private access. |
-| **gewerber-examples** | Deployment examples, Docker Compose, demo projects, quickstart setups. |
-| **gewerber-docs** *(optional)* | Centralized documentation, architecture, guides. |
-| **gewerber-mcp** | Open integration tooling: MCP server (Dart, `dart_mcp`) over stdio — staff-facing admin/moderator toolset; roles enforced server-side. Integration tooling, not an AI assistant. |
-| **.github** | Organization-wide documentation, issue/PR templates, global policies. |
-
-#### Private Repositories
-
-| **Repository** | **Purpose** |
-|---|---|
-| **gewerber-backend-commercial** | Banking adapters (PSD2), ELSTER, advanced accounting, closed APIs. |
-| **gewerber-app-commercial** | Closed app feature packages + production composition root (`apps/product`). |
-| **gewerber-business** | Product strategy, PRD, detailed business roadmap, marketing. |
-| **gewerber-website** | Jaspr SSR marketing site (`gewerber.de`); privately maintained. |
-
-#### Planned Repositories (not yet created)
-
-| **Repository** | **Purpose** |
-|---|---|
-| **gewerber-payments** | Payment processing (planned) — subscription & billing currently implemented in `gewerber-backend-commercial`. |
-| **gewerber-infra** | Terraform, Helm, CI/CD secrets, production deployment (planned). |
-| **gewerber-ops** | Monitoring, alerts, runbooks, incident playbooks (planned). |
-
-Commercial modules live in private repositories.
-
----
-
-## 📄 License
-
-**Gewerber Core** is licensed under **MIT**. Commercial modules are proprietary and not part of this repository.
-
-See **[LICENSE.md](https://github.com/Gewerber/.github/blob/main/LICENSE.md)** for details.
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! See **[CONTRIBUTING.md](https://github.com/Gewerber/.github/blob/main/CONTRIBUTING.md)** for details.
-
----
-
-## 📞 Contact
-
-For commercial licensing or SaaS access:
-
-**https://gewerber.de**
+Gewerber Core is [MIT-licensed](https://github.com/Gewerber/.github/blob/main/LICENSE.md).
+Questions about commercial use: [gewerber.de](https://gewerber.de).
