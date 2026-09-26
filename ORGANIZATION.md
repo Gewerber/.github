@@ -118,6 +118,7 @@ Pull requests affecting closed modules will be rejected.
 - **[Contributing Guide](CONTRIBUTING.md)**
 - **[Code of Conduct](CODE_OF_CONDUCT.md)**
 - **[Security Policy](SECURITY.md)**
+- **[Secret Scanning Runbook](SECRET_SCANNING.md)**
 - **[Governance](GOVERNANCE.md)**
 - **[Support](SUPPORT.md)**
 - **[Roadmap](https://github.com/Gewerber/gewerber-docs/blob/main/ROADMAP.md)**
@@ -131,6 +132,7 @@ Pull requests affecting closed modules will be rejected.
 - Unit tests
 - Flutter Web builds
 - Serverpod → Dart client code generation
+- Native secret scanning and push protection are enabled on all public repositories; push protection blocks secrets before they are pushed. See the [SECRET_SCANNING.md](SECRET_SCANNING.md) runbook.
 
 ### 🔒 Private Repositories
 - Integration tests
@@ -158,6 +160,8 @@ Pull requests affecting closed modules will be rejected.
 - `CONTRIBUTING.md`
 - `CONTRIBUTORS.md`
 - `SECURITY.md`
+- `SECRET_SCANNING.md` — native secret scanning operations, verification, and remediation
+- `scripts/audit-secret-scanning.sh` — public-repository audit with guarded opt-in remediation
 - `SUPPORT.md`
 - `GOVERNANCE.md`
 - `ORGANIZATION.md` *(this document)*
