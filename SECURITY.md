@@ -71,6 +71,9 @@ For non-security issues, use:
 
 Gewerber Core follows industry-standard security practices:
 
+### 🔑 Secret Hygiene
+GitHub's native secret scanning and push protection are enabled on all public **Gewerber** repositories. Push protection blocks secrets before they are pushed; the operational process is documented in the [SECRET_SCANNING.md](SECRET_SCANNING.md) runbook.
+
 ### 🔐 Authentication
 - JWT-based auth (Serverpod)
 - Secure password hashing
@@ -180,6 +183,7 @@ See full roadmap:
 - **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)**
 - **[TECHNICAL_SPECIFICATION.md](https://github.com/Gewerber/gewerber-docs/blob/main/TECHNICAL_SPECIFICATION.md)**
 - **[LICENSE.md](LICENSE.md)**
+- **[Secret Scanning & Push Protection Runbook](SECRET_SCANNING.md)**
 
 ---
 
