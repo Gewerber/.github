@@ -33,11 +33,10 @@ This document describes the repository architecture inside the **Gewerber** GitH
 |---|---|
 | **gewerber-app** | Flutter application shell: mobile, web, desktop. Includes UI Kit, client packages and the `AppFeature` extension point for private features. |
 | **gewerber-backend** | Serverpod backend for the open-source core: auth, invoicing (without payments), time tracking, guidance. Renamed from `gewerber-backend-core`. |
-| **gewerber-backend-stubs** | Public placeholder packages of the commercial module; resolves OSS builds and CI without private access. |
-| **gewerber-website** | Jaspr SSR marketing site (`gewerber.de`). |
+| **gewerber-backend-stubs** | Public contract packages of the commercial module (health endpoint, waitlist API, billing-wiring entrypoint — no closed API surface); resolves OSS builds and CI without private access. |
 | **gewerber-examples** | Deployment examples, Docker Compose, demo projects, quickstart setups. |
 | **gewerber-docs** *(optional)* | Centralized documentation, architecture, guides. |
-| **gewerber-mcp** | Open integration tooling: MCP server (Dart, dart_mcp) talking to the backend exclusively through Serverpod endpoints — an admin/moderator toolset plus a per-user mode; data access is isolated server-side per account. Positioned as integration tooling, not an AI assistant. |
+| **gewerber-mcp** | Open integration tooling: MCP server (Dart, `dart_mcp`) over stdio — staff-facing admin/moderator toolset; talks to the backend exclusively through Serverpod endpoints. Positioned as integration tooling, not an AI assistant. |
 | **.github** | Organization-wide documentation, issue/PR templates, global policies. |
 
 ---
@@ -49,9 +48,15 @@ This document describes the repository architecture inside the **Gewerber** GitH
 | **gewerber-backend-commercial** | Banking adapters (PSD2), ELSTER, advanced accounting, closed APIs (Serverpod module `commercial`). |
 | **gewerber-app-commercial** | Closed app feature packages + production composition root (`apps/product`) building `app.gewerber.de`. |
 | **gewerber-business** | Product strategy, PRD, detailed business roadmap, marketing. |
-| **gewerber-payments** | Stripe, subscriptions, billing, feature gating. |
-| **gewerber-infra** | Terraform, Helm, CI/CD secrets, production deployment. |
-| **gewerber-ops** | Monitoring, alerts, runbooks, incident playbooks. |
+| **gewerber-website** | Jaspr SSR marketing site (`gewerber.de`); privately maintained. |
+
+### 🗓 Planned Repositories (not yet created)
+
+| **Repository** | **Purpose** |
+|---|---|
+| **gewerber-payments** | Payment processing (planned — subscription & billing currently implemented in `gewerber-backend-commercial`). |
+| **gewerber-infra** | Terraform, Helm, CI/CD secrets, production deployment (planned). |
+| **gewerber-ops** | Monitoring, alerts, runbooks, incident playbooks (planned). |
 
 ---
 
@@ -61,16 +66,21 @@ This document describes the repository architecture inside the **Gewerber** GitH
 The Flutter application uses the generated client SDK from `gewerber-backend`.
 
 ### 👉 Backend → Commercial
-The open-source core provides stable API contracts.
-Commercial modules extend functionality through private endpoints.
+The commercial module is a plugin: the OSS core provides stable API contracts
+and integrates the module through its minimal public contract only (health
+endpoint, public waitlist API, one billing-wiring entrypoint). The module owns
+its wiring and closed endpoints internally; the host never imports module
+internals.
 
 ### 👉 Open-Core Dependency Wiring
 No public artifact references a private repository. OSS pubspecs resolve the
-commercial module against the public `gewerber-backend-stubs` packages;
-insiders override them via gitignored `pubspec_overrides.yaml`, and release
-CI/Docker injects the real module with a token. Closed app features implement
-the `AppFeature` contract of the OSS shell and are composed in
-`gewerber-app-commercial/apps/product`.
+commercial module against the public `gewerber-backend-stubs` packages, which
+mirror the module's public contract — not its full API surface — so the
+generated OSS client carries no closed endpoints; insiders override them via
+gitignored `pubspec_overrides.yaml`, and release CI/Docker injects the real
+module with a token. Closed app features implement the `AppFeature` contract
+of the OSS shell and are composed in `gewerber-app-commercial/apps/product`,
+whose builds pin the real (non-stub) commercial client.
 
 ### 👉 Documentation → All Repositories
 Documentation in `.github` acts as the central entry point.
@@ -94,6 +104,7 @@ Documentation in `.github` acts as the central entry point.
 - Subscriptions & billing
 - AI assistant
 - Advanced accounting
+- Multi-currency invoicing
 
 Pull requests affecting closed modules will be rejected.
 
@@ -107,6 +118,7 @@ Pull requests affecting closed modules will be rejected.
 - **[Contributing Guide](CONTRIBUTING.md)**
 - **[Code of Conduct](CODE_OF_CONDUCT.md)**
 - **[Security Policy](SECURITY.md)**
+- **[Secret Scanning Runbook](SECRET_SCANNING.md)**
 - **[Governance](GOVERNANCE.md)**
 - **[Support](SUPPORT.md)**
 - **[Roadmap](https://github.com/Gewerber/gewerber-docs/blob/main/ROADMAP.md)**
@@ -120,6 +132,7 @@ Pull requests affecting closed modules will be rejected.
 - Unit tests
 - Flutter Web builds
 - Serverpod → Dart client code generation
+- Native secret scanning and push protection are enabled on all public repositories; push protection blocks secrets before they are pushed. See the [SECRET_SCANNING.md](SECRET_SCANNING.md) runbook.
 
 ### 🔒 Private Repositories
 - Integration tests
@@ -141,9 +154,14 @@ Pull requests affecting closed modules will be rejected.
 ## 📄 Files in the `.github` Repository
 
 - `profile/README.md` — organization homepage
+- `BRAND_BOOK.md`
 - `CODE_OF_CONDUCT.md`
+- `COMMUNITY.md`
 - `CONTRIBUTING.md`
+- `CONTRIBUTORS.md`
 - `SECURITY.md`
+- `SECRET_SCANNING.md` — native secret scanning operations, verification, and remediation
+- `scripts/audit-secret-scanning.sh` — public-repository audit with guarded opt-in remediation
 - `SUPPORT.md`
 - `GOVERNANCE.md`
 - `ORGANIZATION.md` *(this document)*
