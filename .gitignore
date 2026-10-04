@@ -1,0 +1,3 @@
+# Local-only task tracker (never version-controlled — see AGENTS.md).
+# Items worth keeping belong in GitHub issues: gh issue list --repo Gewerber/.github
+TODO.md
