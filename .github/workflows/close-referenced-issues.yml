@@ -1,0 +1,293 @@
+# Closes the issues a pull request referenced with a closing keyword when that
+# pull request is CLOSED WITHOUT MERGING.
+#
+# Purpose: GitHub closes referenced issues itself only when the referencing PR is
+# merged. A PR that says "Fixes #12" and is then abandoned leaves #12 open with
+# no signal, so stale work piles up on the board. This workflow closes those
+# issues with a comment pointing back at the PR; reopen an issue if the work
+# returns.
+#
+# Merged PRs are skipped (job-level `if` plus an in-script guard): GitHub's own
+# closing-keyword handling already closed their issues.
+#
+# Why `pull_request_target`: it is the only trigger that also fires for fork,
+# Dependabot and conflicted PRs, which is exactly what needs covering. It is
+# safe here because the workflow never checks out the PR and no step executes
+# PR-controlled code — the only step is `github-script`, permissions are limited
+# to `issues: write` + `pull-requests: read`, and the PR title/body are read
+# from `context.payload` as data, never interpolated into the script body via
+# `${{ github.event.* }}`. Only issues in this repository are touched:
+# `owner/repo#N` references to other repositories are skipped, so a PR cannot
+# make this workflow act anywhere else.
+#
+# Author gate (owner-approved): the job only runs for OWNER/MEMBER/COLLABORATOR
+# PR authors, so a fork or first-time contributor cannot use their own PR to
+# close arbitrary issues. This deliberately reduces automatic coverage — such
+# PRs are left to a maintainer to triage by hand. `author_association` is
+# computed by GitHub from repository permissions, not supplied by the PR, which
+# is why it (and never the PR title/body) is safe to use in a job condition.
+#
+# Only closing keywords close an issue: close/closes/closed, fix/fixes/fixed,
+# resolve/resolves/resolved. Bare or hedged mentions ("related to #12",
+# "refs #12") are counted, logged, and ignored.
+name: Close Referenced Issues
+
+on:
+  pull_request_target:
+    types: [closed]
+
+permissions:
+  issues: write
+  pull-requests: read
+
+jobs:
+  close-referenced-issues:
+    name: Close issues referenced by an unmerged PR
+    # Owner-approved author gate: only trusted authors reach the job, so a fork
+    # or first-time contributor cannot close arbitrary issues with their own PR.
+    # `author_association` is GitHub-computed, never PR-supplied text.
+    if: >-
+      ${{ github.event.pull_request.merged == false
+      && contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.pull_request.author_association) }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close referenced issues
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const pullRequest = context.payload.pull_request;
+            if (!pullRequest) {
+              core.warning('No pull request in the event payload — skipping.');
+              return;
+            }
+            // Defensive: the job-level `if` already skips merged pull requests.
+            if (pullRequest.merged) {
+              core.info(`Skipped #${pullRequest.number}: merged, GitHub closed its issues itself.`);
+              return;
+            }
+
+            const MARKER = '<!-- close-referenced-issues -->';
+            const MAX_REFERENCES = 25;
+            const KEYWORD = /\b(?:close[sd]?|fix(?:es|ed)?|resolve[sd]?)\b/gi;
+            // What a closing keyword may span between its references, e.g.
+            // `Closes: #1, #2 and #3`. Greedy, so a clause ends as soon as
+            // anything else appears (`Fixes the issue in #12`), and line-scoped,
+            // so a clause never reaches into the next sentence or list item.
+            const SEPARATOR = /^[ \t]*(?:(?:[,&;:]|and|with|or)[ \t]*)*/i;
+            // Anchored right after a validated separator run, so it can only see
+            // a reference the keyword actually governs — never one inside a URL.
+            const REFERENCE = /^(?:([\w.-]+)\/([\w.-]+)#|#)(\d+)/;
+            const ANY_MENTION = /(?<![\w/])(?:[\w.-]+\/[\w.-]+)?#\d+/g;
+            // Opening or closing code fence: up to three spaces of indent, a run
+            // of backticks or tildes, and an optional info string.
+            const FENCE = /^ {0,3}(`{3,}|~{3,})(.*)$/;
+            // Inline code on a non-fence line, including multi-backtick spans.
+            const INLINE_CODE = /(`+).+?\1/g;
+            // Repository names are case-insensitive, so `Gewerber/.github#12` is
+            // this repository.
+            const isSameRepo = ({ owner, repo }) =>
+              owner.toLowerCase() === context.repo.owner.toLowerCase() &&
+              repo.toLowerCase() === context.repo.repo.toLowerCase();
+
+            /**
+             * Blanks out fenced and inline code, character for character, so a
+             * `#12` example inside code can never be read as a reference and a
+             * line-scoped clause can never jump across a blanked region. A single
+             * pass over the lines handles outer fences longer than three
+             * backticks, shorter fences nested inside them, ``` and ~~~ fences,
+             * and unterminated blocks (which run to the end of the text).
+             */
+            const blank = (line) => ' '.repeat(line.length);
+            const stripCode = (text) => {
+              let fence = null;
+              return text
+                .split('\n')
+                .map((line) => {
+                  const match = FENCE.exec(line);
+                  if (fence) {
+                    // Only a marker of the same character, at least as long as the
+                    // opening one and without an info string, closes the block.
+                    if (
+                      match &&
+                      match[1][0] === fence.char &&
+                      match[1].length >= fence.length &&
+                      match[2].trim() === ''
+                    ) {
+                      fence = null;
+                    }
+                    return blank(line);
+                  }
+                  if (match) {
+                    fence = { char: match[1][0], length: match[1].length };
+                    return blank(line);
+                  }
+                  return line.replace(INLINE_CODE, blank);
+                })
+                .join('\n');
+            };
+
+            /**
+             * Returns every reference governed by a closing keyword, in order.
+             * A keyword governs the first reference that follows it across
+             * separators only — `This PR fixes #12` and `Fixes #12` work,
+             * `fixes the #12 bug` does not — plus any further `,`/`and`-joined
+             * references on that same clause. Text trailing the clause is
+             * ignored, which mirrors GitHub's own merge-time rule: a merged and
+             * an abandoned PR close the same set of issues.
+             */
+            const keywordReferences = (text) => {
+              const found = [];
+              for (const keyword of text.matchAll(KEYWORD)) {
+                let cursor = keyword.index + keyword[0].length;
+                for (;;) {
+                  const gap = SEPARATOR.exec(text.slice(cursor))[0];
+                  const match = REFERENCE.exec(text.slice(cursor + gap.length));
+                  if (!match) {
+                    break;
+                  }
+                  found.push({
+                    // A bare `#12` refers to this repository.
+                    owner: match[1] ?? context.repo.owner,
+                    repo: match[2] ?? context.repo.repo,
+                    number: Number(match[3]),
+                    keyword: keyword[0],
+                  });
+                  cursor += gap.length + match[0].length;
+                }
+              }
+              return found;
+            };
+
+            const scan = stripCode(
+              [pullRequest.title, pullRequest.body].filter(Boolean).join('\n')
+            );
+            const mentions = scan.match(ANY_MENTION) ?? [];
+            const found = keywordReferences(scan);
+            if (mentions.length > found.length) {
+              core.info(
+                `Ignored ${mentions.length - found.length} mention(s) without a closing keyword.`
+              );
+            }
+
+            // Deduplicated by `owner/repo#number` (case-insensitively, like the
+            // same-repo filter further down), so an issue named in several
+            // clauses — or qualified as `Gewerber/.github#12` and `#12` — is
+            // handled once.
+            const references = new Map();
+            for (const reference of found) {
+              const key = `${reference.owner.toLowerCase()}/${reference.repo.toLowerCase()}#${reference.number}`;
+              references.set(key, reference);
+            }
+
+            if (references.size === 0) {
+              core.info(`Skipped #${pullRequest.number}: no closing keyword references found.`);
+              return;
+            }
+            for (const candidate of references.values()) {
+              core.info(
+                `Closing keyword "${candidate.keyword}": #${candidate.number} in ${candidate.owner}/${candidate.repo}`
+              );
+            }
+
+            // Same-repo only. Filtered before the cap so foreign references
+            // cannot use up the budget and crowd out a local issue.
+            const local = [];
+            for (const candidate of references.values()) {
+              if (isSameRepo(candidate)) {
+                local.push(candidate);
+                continue;
+              }
+              core.info(
+                `Skipped ${candidate.owner}/${candidate.repo}#${candidate.number}: not this repository.`
+              );
+            }
+            if (local.length === 0) {
+              core.info(`Skipped #${pullRequest.number}: every reference is outside this repository.`);
+              return;
+            }
+            if (local.length > MAX_REFERENCES) {
+              core.warning(
+                `PR closes ${local.length} issues — processing only the first ${MAX_REFERENCES}.`
+              );
+            }
+            const candidates = local.slice(0, MAX_REFERENCES);
+
+            for (const candidate of candidates) {
+              const target = {
+                owner: candidate.owner,
+                repo: candidate.repo,
+                issue_number: candidate.number,
+              };
+
+              let issue;
+              try {
+                ({ data: issue } = await github.rest.issues.get(target));
+              } catch (error) {
+                if (error.status === 404) {
+                  core.info(`Skipped #${candidate.number}: no such issue in this repository.`);
+                } else {
+                  core.warning(`Could not read #${candidate.number}: ${error.message}`);
+                }
+                continue;
+              }
+
+              if (issue.pull_request) {
+                core.info(`Skipped #${candidate.number}: it is a pull request, not an issue.`);
+                continue;
+              }
+              if (issue.state !== 'open') {
+                core.info(`Skipped #${candidate.number}: already ${issue.state}.`);
+                continue;
+              }
+
+              let comments;
+              try {
+                comments = await github.paginate(github.rest.issues.listComments, {
+                  ...target,
+                  per_page: 100,
+                });
+              } catch (error) {
+                core.warning(`Could not read the comments of #${candidate.number}: ${error.message}`);
+                continue;
+              }
+              // Idempotency: the marker comment means "a previous run already
+              // explained this close". The issue is still open, so that run must
+              // have failed between comment and close — retry the close instead
+              // of posting a second comment. On the first attempt the comment is
+              // a precondition: if it cannot be posted, the issue stays open and
+              // a later run starts from the comment step again.
+              const alreadyCommented = comments.some((comment) =>
+                (comment.body ?? '').includes(MARKER)
+              );
+
+              if (alreadyCommented) {
+                core.info(`#${candidate.number}: marker comment present, retrying the close.`);
+              } else {
+                try {
+                  await github.rest.issues.createComment({
+                    ...target,
+                    body: [
+                      MARKER,
+                      '',
+                      `Closed automatically because [#${pullRequest.number}](${pullRequest.html_url}) was closed without being merged.`,
+                      '',
+                      'Reopen this issue if the work is still needed.',
+                    ].join('\n'),
+                  });
+                } catch (error) {
+                  core.warning(`Could not comment on #${candidate.number}: ${error.message}`);
+                  continue;
+                }
+              }
+
+              try {
+                await github.rest.issues.update({
+                  ...target,
+                  state: 'closed',
+                  state_reason: 'not_planned',
+                });
+                core.info(`Closed #${candidate.number} (referenced by closed PR #${pullRequest.number}).`);
+              } catch (error) {
+                core.warning(`Could not close #${candidate.number}: ${error.message}`);
+              }
+            }
